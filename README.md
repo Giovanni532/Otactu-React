@@ -2,7 +2,7 @@
 
 ### react, react-router, react-router-dom, firebase, react-dom and react-bootstrap, react-firebase-file-uploader
 
-## Start Project
+## Set Project
 
 git clone git@github.com:Giovanni532/react-getting-started-with-router-and-firebase.git
 
