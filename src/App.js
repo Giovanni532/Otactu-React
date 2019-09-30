@@ -9,6 +9,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavbarLogin from './navbar/NavbarLogin';
 import Profil from './pages/Profil';
+import HomeUser from './pages/HomeUser';
+import Manga from './pages/Manga';
 
 const configFirebase = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -28,8 +30,10 @@ function App() {
       <div>
         <NavbarLogin />
         <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <PrivateRoute path="/home" component={HomeUser} />
+        <PrivateRoute path="/manga" component={Manga} />
         <PrivateRoute path="/user" component={Profil} />
       </div>
     </Router>

@@ -53,7 +53,7 @@ export default class Login extends React.Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to='/' />;
+            return <Redirect to='/home' />;
         }
         return (
             <div className="parent-form">
