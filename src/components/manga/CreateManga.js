@@ -8,6 +8,7 @@ export default class CreateManga extends React.Component {
         super();
 
         this.state = {
+            idManga: 0,
             nameOfManga: "",
             description: "",
             createAt: "",
@@ -22,10 +23,28 @@ export default class CreateManga extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    fetchMangasData = () => {
+        const dataMangas = []
+        const data = firebase.database().ref('mangas')
+        data.on('value', (snapshot) => {
+            const manga = snapshot.val();
+            const mangaData = []
+            for (let name in manga) {
+                mangaData.push({
+                    nameOfManga: manga[name].nameOfManga,
+                    description: manga[name].description,
+                    createAt: manga[name].createAt
+                })
+            }
+            dataMangas.push(mangaData)
+        })
+        return dataMangas.length + 1
+    }
+
     createManga = () => {
         this.setState({ loader: true })
         if (this.state.nameOfManga.length !== 0 && this.state.description.length !== 0 && this.state.createAt.length !== 0) {
-            firebase.database().ref('mangas/').child(this.state.nameOfManga).set({
+            firebase.database().ref('mangas/').child(this.fetchMangasData() + " " + this.state.nameOfManga).set({
                 nameOfManga: this.state.nameOfManga,
                 description: this.state.description,
                 createAt: this.state.createAt,

@@ -1,11 +1,23 @@
+.parent-manga {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 30px 10px 10px 10px;
+}
+
+.title-mangas {
+    margin-top: 100px;
+    text-align: center;
+}
+
 .card-manga {
     overflow: hidden;
+    margin: 10px;
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
   
   .card-manga > img {
-    height: 200px;
+    height: 150px;
     width: 100%;
     object-fit: cover;
   }
