@@ -15,7 +15,8 @@ export default class CreateManga extends React.Component {
             uid: firebase.auth().currentUser.uid,
             error: "",
             loader: false,
-            redirect: false
+            redirect: false,
+            lengthData: 0
         }
 
 
@@ -24,27 +25,29 @@ export default class CreateManga extends React.Component {
     }
 
     fetchMangasData = () => {
-        const dataMangas = []
+        let lengthData = 0
         const data = firebase.database().ref('mangas')
         data.on('value', (snapshot) => {
             const manga = snapshot.val();
             const mangaData = []
+            let index = 0
             for (let name in manga) {
                 mangaData.push({
                     nameOfManga: manga[name].nameOfManga,
                     description: manga[name].description,
                     createAt: manga[name].createAt
                 })
+                index++;
             }
-            dataMangas.push(mangaData)
+            lengthData = index
         })
-        return dataMangas.length + 1
+        return lengthData
     }
 
     createManga = () => {
         this.setState({ loader: true })
         if (this.state.nameOfManga.length !== 0 && this.state.description.length !== 0 && this.state.createAt.length !== 0) {
-            firebase.database().ref('mangas/').child(this.fetchMangasData() + " " + this.state.nameOfManga).set({
+            firebase.database().ref('mangas/' + this.fetchMangasData()).set({
                 nameOfManga: this.state.nameOfManga,
                 description: this.state.description,
                 createAt: this.state.createAt,
@@ -74,6 +77,7 @@ export default class CreateManga extends React.Component {
         event.preventDefault()
         this.createManga()
     }
+    
 
     render() {
         let classNamError = ""
