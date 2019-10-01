@@ -1,9 +1,10 @@
 import React from 'react'
+import MangasData from '../components/homeUser/MangasData'
 
 export default class HomeUser extends React.Component {
     render() {
         return (
-            <h1 style={{marginTop: 100, textAlign: "center"}}>Home User</h1>
+            <MangasData/>
         )
     }
 }
