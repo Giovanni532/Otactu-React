@@ -1,5 +1,6 @@
 import React from 'react'
 import LoaderCircle from '../../loaders/LoaderCircle'
+import { Redirect } from 'react-router-dom'
 import firebase from 'firebase/app'
 
 export default class CreateManga extends React.Component {
@@ -12,7 +13,8 @@ export default class CreateManga extends React.Component {
             createAt: "",
             uid: firebase.auth().currentUser.uid,
             error: "",
-            loader: false
+            loader: false,
+            redirect: false
         }
 
 
@@ -21,23 +23,17 @@ export default class CreateManga extends React.Component {
     }
 
     createManga = () => {
-        this.setState({loader: true})
+        this.setState({ loader: true })
         if (this.state.nameOfManga.length !== 0 && this.state.description.length !== 0 && this.state.createAt.length !== 0) {
-            if (this.state.createAt) {
-                this.setState({
-                    error: "Ce manga est deja dans la bdd"
-                })
-            } else {
-                firebase.database().ref('mangas/').child(this.state.nameOfManga).set({
-                    nameOfManga: this.state.nameOfManga,
-                    description: this.state.description,
-                    createAt: this.state.createAt,
-                    creePar: this.state.uid
-                })
+            firebase.database().ref('mangas/').child(this.state.nameOfManga).set({
+                nameOfManga: this.state.nameOfManga,
+                description: this.state.description,
+                createAt: this.state.createAt,
+                creePar: this.state.uid
+            })
                 .then(() => {
-                    this.setState({loader: false})
+                    this.setState({ loader: false, redirect: true })
                 })
-            }
         } else {
             this.setState({
                 error: "Vous n'avez pas entrer tout les champs",
@@ -65,8 +61,10 @@ export default class CreateManga extends React.Component {
         if (this.state.error.length > 0) {
             classNamError = "error"
         }
-
-        return(
+        if (this.state.redirect) {
+            return <Redirect to='/home' />;
+        }
+        return (
             <div className="parent-form">
                 <h2 className="title">ajoute ton manga !</h2>
                 <form onSubmit={this.handleSubmit} className="form">
