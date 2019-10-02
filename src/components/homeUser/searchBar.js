@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from 'firebase/app'
 import Image from '../../assets/userprofile.png'
+import { InputGroup, FormControl, Button } from 'react-bootstrap'
 
 export default class SearchBar extends React.Component {
     _isMounted = true
@@ -12,7 +13,7 @@ export default class SearchBar extends React.Component {
             mangasData: [],
             filtered: [],
         }
-        
+
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.searchBarItem = this.searchBarItem.bind(this)
@@ -79,13 +80,18 @@ export default class SearchBar extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit} className="form">
-                    <label className="label">
-                        searchbar
-                        </label>
-                    <input className="input" type="text" name="query" value={this.state.query} onChange={this.handleChange} />
-                    <input className="button" type="submit" value="Envoyer" />
-                </form>
+                <InputGroup className="mb-3" onSubmit={this.handleSubmit}>
+                    <FormControl
+                        placeholder="Recherche ton manga"
+                        type="text"
+                        name="query"
+                        value={this.state.query}
+                        onChange={this.handleChange}
+                    />
+                    <InputGroup.Prepend>
+                        <Button onSubmit={this.handleSubmit}>Rechercher</Button>
+                    </InputGroup.Prepend>
+                </InputGroup>
                 {this.state.query.length === 0 ?
                     <div className="parent-manga">
                         {this.state.mangasData.map((elem, index) =>
