@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import firebase from 'firebase/app'
 import { Redirect } from 'react-router-dom'
@@ -122,7 +121,7 @@ export default class UserData extends React.Component {
                     <div className="parent-form">
                         <div className="form">
                             <p style={{ marginTop: 10 }}>Information sur le compte</p>
-                            <img className="image-profil" src={this.state.imageUrl} />
+                            <img className="image-profil" src={this.state.imageUrl} alt={this.state.imageUrl}/>
                             <p>votre email : {this.state.email}</p>
                             <p>votre prenom : {this.state.firstName}</p>
                             <p>votre nom : {this.state.lastName}</p>
