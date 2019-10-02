@@ -12,6 +12,7 @@ export default class CreateManga extends React.Component {
             description: "",
             createAt: "",
             uid: firebase.auth().currentUser.uid,
+            type: "",
             error: "",
             loader: false,
             redirect: false,
@@ -49,7 +50,8 @@ export default class CreateManga extends React.Component {
                 nameOfManga: this.state.nameOfManga,
                 description: this.state.description,
                 createAt: this.state.createAt,
-                creePar: this.state.uid
+                creePar: this.state.uid,
+                type: this.state.type
             })
                 .then(() => {
                     this.setState({ loader: false, redirect: true })
@@ -75,7 +77,7 @@ export default class CreateManga extends React.Component {
         event.preventDefault()
         this.createManga()
     }
-    
+
 
     render() {
         let classNamError = ""
@@ -101,6 +103,13 @@ export default class CreateManga extends React.Component {
                         quand il a ete cree
                         </label>
                     <input className="input" type="text" name="createAt" value={this.state.createAt} onChange={this.handleChange} />
+                    <label className="label">
+                        quelle type
+                        </label>
+                    <select name="type" value={this.state.type} onChange={this.handleChange}>
+                        <option value="Manga">Manga</option>
+                        <option value="Anime">Anime</option>
+                    </select>
                     <input className="button" type="submit" value="Envoyer" />
                 </form>
                 {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
