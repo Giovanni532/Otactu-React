@@ -10,22 +10,30 @@ export default class SearchBar extends React.Component {
         this.state = {
             query: "",
             mangasData: [],
-            filtered: []
+            filtered: [],
         }
+        
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.searchBarItem = this.searchBarItem.bind(this)
     }
 
     searchBarItem() {
-        let listFiltered = []
-
+        let currentList = [];
+        let newList = [];
         if (this.state.query !== "") {
-            listFiltered = this.state.mangasData.filter(elem => elem.nameOfManga.toLowerCase() === this.state.query.toLowerCase())
-            this.setState({ filtered: listFiltered })
+            currentList = this.state.mangasData;
+            newList = currentList.filter(manga => {
+                const lcManga = manga.nameOfManga.toLowerCase();
+                const filter = this.state.query.toLowerCase();
+                return lcManga.includes(filter);
+            });
         } else {
-            return this.state.mangasData
+            newList = this.state.mangasData;
         }
+        this.setState({
+            filtered: newList
+        })
     }
 
     handleChange = event => {
@@ -35,6 +43,8 @@ export default class SearchBar extends React.Component {
         this.setState({
             [name]: value
         })
+
+        this.searchBarItem()
     }
 
     handleSubmit(event) {
@@ -76,7 +86,7 @@ export default class SearchBar extends React.Component {
                     <input className="input" type="text" name="query" value={this.state.query} onChange={this.handleChange} />
                     <input className="button" type="submit" value="Envoyer" />
                 </form>
-                {this.state.filtered.length === 0 ?
+                {this.state.query.length === 0 ?
                     <div className="parent-manga">
                         {this.state.mangasData.map((elem, index) =>
                             <div className="card-manga" key={index}>
