@@ -8,7 +8,6 @@ export default class CreateManga extends React.Component {
         super();
 
         this.state = {
-            idManga: 0,
             nameOfManga: "",
             description: "",
             createAt: "",
@@ -16,7 +15,6 @@ export default class CreateManga extends React.Component {
             error: "",
             loader: false,
             redirect: false,
-            lengthData: 0
         }
 
 
