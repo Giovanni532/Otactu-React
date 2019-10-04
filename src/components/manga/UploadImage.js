@@ -21,13 +21,12 @@ export default class UploadeImage extends React.Component {
     }
 
     handleUploadSucces = filename => {
-        let deleteImage = this.state.image
         if (this.state.image !== filename) {
             this.setState({
                 image: filename,
                 progress: 100
             })
-            firebase.storage().ref('mangas/' + this.props.numberOfManga).child(deleteImage).delete()
+            // firebase.storage().ref('mangas/' + this.props.numberOfManga).child(deleteImage).delete()
         }
 
         firebase.storage().ref('mangas/' + this.props.numberOfManga).child(filename).getDownloadURL()

@@ -1,7 +1,7 @@
 import React from 'react'
 import firebase from 'firebase/app'
-import Image from '../../assets/userprofile.png'
 import LoaderCircle from '../../loaders/LoaderCircle'
+import CardManga from './CardManga'
 
 export default class MangasData extends React.Component {
     _isMounted = true
@@ -20,12 +20,15 @@ export default class MangasData extends React.Component {
         data.on('value', (snapshot) => {
             const manga = snapshot.val();
             const mangaData = []
+            let index = 0
             for (let name in manga) {
                 mangaData.push({
+                    id: index,
                     nameOfManga: manga[name].nameOfManga,
                     description: manga[name].description,
-                    createAt: manga[name].createAt
+                    createAt: manga[name].createAt,
                 })
+                index++;
             }
             if (this._isMounted) {
                 this.setState({
@@ -41,28 +44,15 @@ export default class MangasData extends React.Component {
     }
 
     render() {
-        const dataLength = this.state.mangasData.length
         return (
             <div>
                 <h2 className="title-mangas">Voici les 3 derniers mangas ajoutez !</h2>
                 {this.state.loaded ? 
                     <LoaderCircle/>
                     :
-                    <div className="parent-manga">
-                    {this.state.mangasData.map((elem, index) =>
-                        <div className="card-manga" key={index}>
-                            <img src={Image} alt={elem.nameOfManga} />
-                            <div className="card-manga-infos">
-                                <div>
-                                    <h2>{elem.nameOfManga}</h2>
-                                    <p>{elem.description}</p>
-                                </div>
-                                <h2 className="card-manga-pricing">{elem.createAt}</h2>
-                                {/* <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-manga-user avatar-bordered" /> */}
-                            </div>
-                        </div>
-                    ).slice(dataLength - 3, dataLength)}
-                </div>
+                    this.state.mangasData.map(elem => 
+                        <CardManga key={elem.id} numberOfFolder={elem.id} nameOfManga={elem.nameOfManga} createAt={elem.createAt} description={elem.description}/>
+                    ).reverse().slice(-3)
                 }
                 </div>
         )
