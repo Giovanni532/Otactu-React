@@ -15,7 +15,7 @@ export default class MangasData extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({loaded: true})
+        this.setState({ loaded: true })
         const data = firebase.database().ref('mangas')
         data.on('value', (snapshot) => {
             const manga = snapshot.val();
@@ -47,14 +47,16 @@ export default class MangasData extends React.Component {
         return (
             <div>
                 <h2 className="title-mangas">Voici les 3 derniers mangas ajoutez !</h2>
-                {this.state.loaded ? 
-                    <LoaderCircle/>
+                {this.state.loaded ?
+                    <LoaderCircle />
                     :
-                    this.state.mangasData.map(elem => 
-                        <CardManga key={elem.id} numberOfFolder={elem.id} nameOfManga={elem.nameOfManga} createAt={elem.createAt} description={elem.description}/>
-                    ).reverse().slice(-3)
+                    <div className="parent-manga">
+                        {this.state.mangasData.slice(-3).map(elem =>
+                            <CardManga key={elem.id} numberOfFolder={elem.id} nameOfManga={elem.nameOfManga} createAt={elem.createAt} description={elem.description} />
+                        )}
+                    </div>
                 }
-                </div>
+            </div>
         )
     }
 }

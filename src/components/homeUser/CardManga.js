@@ -27,20 +27,16 @@ export default class CardManga extends React.Component {
 
     render() {
         return (
-            <div>
-            <div className="parent-manga">
-                <div className="card-manga" key={this.props.numberOfFolder}>
-                    <img src={this.state.imageUrl} alt={this.props.nameOfManga} />
-                    <div className="card-manga-infos">
-                        <div>
-                            <h2>{this.props.nameOfManga}</h2>
-                            <p>{this.props.description}</p>
-                        </div>
-                        <h2 className="card-manga-pricing">{this.props.createAt}</h2>
-                        {/* <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-manga-user avatar-bordered" /> */}
+            <div className="card-manga" key={this.props.numberOfFolder}>
+                <img src={this.state.imageUrl} alt={this.props.nameOfManga} />
+                <div className="card-manga-infos">
+                    <div>
+                        <h2>{this.props.nameOfManga}</h2>
+                        <p>{this.props.description}</p>
                     </div>
+                    <h2 className="card-manga-pricing">{this.props.createAt}</h2>
+                    {/* <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-manga-user avatar-bordered" /> */}
                 </div>
-            </div>
             </div>
         )
     }
