@@ -1,6 +1,5 @@
 import React from 'react'
 import firebase from 'firebase/app'
-import Image from '../../assets/userprofile.png'
 import { InputGroup, FormControl, Button } from 'react-bootstrap'
 import CardManga from './CardManga'
 
@@ -104,18 +103,8 @@ export default class SearchBar extends React.Component {
                     </div>
                     :
                     <div className="parent-manga">
-                        {this.state.filtered.map((elem, index) =>
-                            <div className="card-manga" key={index}>
-                                <img src={Image} alt={elem.nameOfManga} />
-                                <div className="card-manga-infos">
-                                    <div>
-                                        <h2>{elem.nameOfManga}</h2>
-                                        <p>{elem.description}</p>
-                                    </div>
-                                    <h2 className="card-manga-pricing">{elem.createAt}</h2>
-                                    {/* <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-manga-user avatar-bordered" /> */}
-                                </div>
-                            </div>
+                        {this.state.filtered.map(elem =>
+                            <CardManga key={elem.id} numberOfFolder={elem.id} nameOfManga={elem.nameOfManga} createAt={elem.createAt} description={elem.description} />
                         )}
                     </div>
                 }
