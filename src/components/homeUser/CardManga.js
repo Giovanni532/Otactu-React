@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from 'firebase/app'
 import image from '../../assets/userprofile.png'
+import { Redirect } from 'react-router-dom'
 
 export default class CardManga extends React.Component {
     constructor() {
@@ -9,6 +10,7 @@ export default class CardManga extends React.Component {
         this.state = {
             image: "",
             imageUrl: image,
+            redirect: false
         }
     }
 
@@ -26,8 +28,11 @@ export default class CardManga extends React.Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={'/' + this.props.nameOfManga} />;
+        }
         return (
-            <div className="card-manga" key={this.props.numberOfFolder}>
+            <div className="card-manga" key={this.props.numberOfFolder} onClick={() => this.setState({ redirect: !this.state.redirect })}>
                 <img src={this.state.imageUrl} alt={this.props.nameOfManga} />
                 <div className="card-manga-infos">
                     <div>

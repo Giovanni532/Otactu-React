@@ -13,7 +13,7 @@ export default class CreateManga extends React.Component {
             description: "",
             createAt: "",
             uid: firebase.auth().currentUser.uid,
-            type: "",
+            type: "Anime",
             error: "",
             loader: false,
             redirect: false,
