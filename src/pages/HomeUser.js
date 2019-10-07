@@ -1,7 +1,6 @@
 import React from 'react'
 import MangasData from '../components/homeUser/MangasData'
-import SearchBar from '../components/homeUser/SearchBar'
-
+import SearchBar from '../components/homeUser/searchBar'
 export default class HomeUser extends React.Component {
     render() {
         return (
