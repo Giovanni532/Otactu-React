@@ -10,8 +10,11 @@ export default class CreateManga extends React.Component {
 
         this.state = {
             nameOfManga: "",
+            autheur: "",
+            saison: "",
+            link: "",
             description: "",
-            createAt: "",
+            dateDeSortie: "",
             uid: firebase.auth().currentUser.uid,
             type: "Anime",
             error: "",
@@ -35,7 +38,7 @@ export default class CreateManga extends React.Component {
                 mangaData.push({
                     nameOfManga: manga[name].nameOfManga,
                     description: manga[name].description,
-                    createAt: manga[name].createAt
+                    dateDeSortie: manga[name].dateDeSortie
                 })
                 index++;
             }
@@ -46,11 +49,11 @@ export default class CreateManga extends React.Component {
 
     createManga = () => {
         this.setState({ loader: true })
-        if (this.state.nameOfManga.length !== 0 && this.state.description.length !== 0 && this.state.createAt.length !== 0) {
+        if (this.state.nameOfManga.length !== 0 && this.state.description.length !== 0 && this.state.dateDeSortie.length !== 0) {
             firebase.database().ref('mangas/' + this.fetchMangasData()).set({
                 nameOfManga: this.state.nameOfManga,
                 description: this.state.description,
-                createAt: this.state.createAt,
+                dateDeSortie: this.state.dateDeSortie,
                 creePar: this.state.uid,
                 type: this.state.type
             })
@@ -99,13 +102,21 @@ export default class CreateManga extends React.Component {
                         </label>
                     <input className="input" type="text" name="nameOfManga" value={this.state.nameOfManga} onChange={this.handleChange} />
                     <label className="label">
+                        l'autheur
+                        </label>
+                    <input className="input" type="text" name="autheur" value={this.state.autheur} onChange={this.handleChange} />
+                    <label className="label">
+                        combien de saison
+                        </label>
+                    <input className="input" type="text" name="saison" value={this.state.saison} onChange={this.handleChange} />
+                    <label className="label">
                         la description
                         </label>
                     <input className="input" type="text" name="description" value={this.state.description} onChange={this.handleChange} />
                     <label className="label">
-                        quand il a ete cree
+                        Date de sortie
                         </label>
-                    <input className="input" type="text" name="createAt" value={this.state.createAt} onChange={this.handleChange} />
+                    <input className="input" type="text" name="dateDeSortie" value={this.state.dateDeSortie} onChange={this.handleChange} />
                     <label className="label">
                         quelle type
                         </label>
@@ -113,6 +124,10 @@ export default class CreateManga extends React.Component {
                         <option value="Manga">Manga</option>
                         <option value="Anime">Anime</option>
                     </select>
+                    <label className="label">
+                        lien util
+                        </label>
+                    <input className="input" type="text" name="link" value={this.state.link} onChange={this.handleChange} />
                     <input className="button" type="submit" value="Envoyer" />
                 </form>
                 {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
