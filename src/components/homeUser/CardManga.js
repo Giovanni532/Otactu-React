@@ -29,7 +29,16 @@ export default class CardManga extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={'/' + this.props.nameOfManga} />;
+            return <Redirect to={{
+                pathname:'/mangas/' + this.props.nameOfManga,
+                state: {
+                    numberOfFolder: this.props.numberOfFolder,
+                    nameOfManga: this.props.nameOfManga,
+                    imageUrl: this.state.imageUrl,
+                    description: this.props.description,
+                    createAt: this.props.createAt
+                }
+            }} />;
         }
         return (
             <div className="card-manga" key={this.props.numberOfFolder} onClick={() => this.setState({ redirect: !this.state.redirect })}>

@@ -19,7 +19,7 @@ const RouterNavigator = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <PrivateRoute path="/home" component={HomeUser} />
-        <PrivateRoute path="/:id" component={Child} />
+        <PrivateRoute path="/mangas/*" component={Child} />
         <PrivateRoute path="/manga" component={Manga} />
         <PrivateRoute path="/user" component={Profil} />
       </div>
