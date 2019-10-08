@@ -3,6 +3,7 @@ import firebase from 'firebase/app'
 import { Redirect, Link } from 'react-router-dom'
 import LoaderCircle from '../../loaders/LoaderCircle'
 import FileUploader from 'react-firebase-file-uploader'
+import Image from '../../assets/userprofile.png'
 // import ProgressBar from '../../helpers/progressBar'
 
 export default class UserData extends React.Component {
@@ -17,7 +18,7 @@ export default class UserData extends React.Component {
             redirect: false,
             loaded: false,
             image: '',
-            imageUrl: '',
+            imageUrl: Image,
             progress: 0,
             uid: firebase.auth().currentUser.uid
         }
