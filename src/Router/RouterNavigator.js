@@ -9,6 +9,7 @@ import NavbarLogin from '../navbar/NavbarLogin';
 import Profil from '../pages/Profil';
 import HomeUser from '../pages/HomeUser';
 import Manga from '../pages/Manga';
+import UserMangas from '../components/Profil/UserMangas';
 
 const RouterNavigator = () => {
   return (
@@ -19,7 +20,7 @@ const RouterNavigator = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <PrivateRoute path="/home" component={HomeUser} />
-        <PrivateRoute path="/users/*/mangas" component={HomeUser} />
+        <PrivateRoute path="/users/*/mangas" component={UserMangas} />
         <PrivateRoute path="/mangas/*" component={Child} />
         <PrivateRoute path="/manga" component={Manga} />
         <PrivateRoute path="/user" component={Profil} />
