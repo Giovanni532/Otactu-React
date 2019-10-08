@@ -49,7 +49,6 @@ export default class CardManga extends React.Component {
                         <p>{this.props.description}</p>
                     </div>
                     <h2 className="card-manga-pricing">{this.props.createAt}</h2>
-                    {/* <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-manga-user avatar-bordered" /> */}
                 </div>
             </div>
         )
