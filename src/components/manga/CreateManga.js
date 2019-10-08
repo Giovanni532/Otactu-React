@@ -99,7 +99,7 @@ export default class CreateManga extends React.Component {
                 <h2 className="title">ajoute ton manga !</h2>
                 <form onSubmit={this.handleSubmit} className="form">
                     <p>L'image du manga</p>
-                    <UploadeImage numberOfManga={this.fetchMangasData()}/>
+                    <UploadeImage numberOfManga={this.fetchMangasData()} />
                     <label className="label">
                         le nom du mangas
                         </label>
