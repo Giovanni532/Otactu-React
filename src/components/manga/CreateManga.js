@@ -49,7 +49,9 @@ export default class CreateManga extends React.Component {
 
     createManga = () => {
         this.setState({ loader: true })
-        if (this.state.nameOfManga.length !== 0 && this.state.description.length !== 0 && this.state.dateDeSortie.length !== 0) {
+        if (this.state.nameOfManga.length !== 0 && this.state.description.length !== 0
+            && this.state.dateDeSortie.length !== 0 && this.state.autheur.length !== 0
+            && this.state.type.length !== 0) {
             firebase.database().ref('mangas/' + this.fetchMangasData()).set({
                 nameOfManga: this.state.nameOfManga,
                 description: this.state.description,
@@ -65,7 +67,7 @@ export default class CreateManga extends React.Component {
                 })
         } else {
             this.setState({
-                error: "Vous n'avez pas entrer tout les champs",
+                error: "Vous n'avez pas entrer tout les champs contenant *",
                 loader: false
             })
         }
@@ -98,14 +100,14 @@ export default class CreateManga extends React.Component {
             <div className="parent-form">
                 <h2 className="title">ajoute ton manga !</h2>
                 <form onSubmit={this.handleSubmit} className="form">
-                    <p>L'image du manga</p>
+                    <p>L'image du manga *</p>
                     <UploadeImage numberOfManga={this.fetchMangasData()} />
                     <label className="label">
-                        le nom du mangas
+                        le nom du mangas *
                         </label>
                     <input className="input" type="text" name="nameOfManga" value={this.state.nameOfManga} onChange={this.handleChange} />
                     <label className="label">
-                        l'autheur
+                        l'autheur *
                         </label>
                     <input className="input" type="text" name="autheur" value={this.state.autheur} onChange={this.handleChange} />
                     <label className="label">
@@ -113,15 +115,15 @@ export default class CreateManga extends React.Component {
                         </label>
                     <input className="input" type="text" name="saison" value={this.state.saison} onChange={this.handleChange} />
                     <label className="label">
-                        la description
+                        la description *
                         </label>
                     <input className="input" type="text" name="description" value={this.state.description} onChange={this.handleChange} />
                     <label className="label">
-                        Date de sortie
+                        Date de sortie *
                         </label>
                     <input className="input" type="text" name="dateDeSortie" value={this.state.dateDeSortie} onChange={this.handleChange} />
                     <label className="label">
-                        quelle type
+                        quelle type *
                         </label>
                     <select name="type" value={this.state.type} onChange={this.handleChange}>
                         <option value="Manga">Manga</option>
