@@ -102,7 +102,7 @@ export default class SearchBar extends React.Component {
                 {this.state.query.length === 0 ?
                     <div className="parent-manga">
                         {this.state.mangasData.map(elem =>
-                            <CardManga                             
+                            <CardManga
                                 key={elem.id}
                                 numberOfFolder={elem.id}
                                 nameOfManga={elem.nameOfManga}
@@ -117,7 +117,7 @@ export default class SearchBar extends React.Component {
                     :
                     <div className="parent-manga">
                         {this.state.filtered.map(elem =>
-                            <CardManga                             
+                            <CardManga
                                 key={elem.id}
                                 numberOfFolder={elem.id}
                                 nameOfManga={elem.nameOfManga}

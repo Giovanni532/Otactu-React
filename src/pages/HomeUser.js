@@ -5,8 +5,8 @@ export default class HomeUser extends React.Component {
     render() {
         return (
             <div>
-            <MangasData/>
-            <SearchBar/>
+                <MangasData />
+                <SearchBar />
             </div>
         )
     }

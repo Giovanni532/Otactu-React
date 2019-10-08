@@ -18,9 +18,7 @@ const configFirebase = {
 firebase.initializeApp(configFirebase)
 
 function App() {
-  return (
-    <RouterNavigator/>
-  );
+  return <RouterNavigator />
 }
 
 export default App;
