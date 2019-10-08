@@ -46,9 +46,9 @@ export default class CardManga extends React.Component {
                 <div className="card-manga-infos">
                     <div>
                         <h2>{this.props.nameOfManga}</h2>
-                        <p>{this.props.description}</p>
+                        <p>{this.props.autheur}</p>
                     </div>
-                    <h2 className="card-manga-pricing">{this.props.createAt}</h2>
+                    <h2 className="card-manga-pricing">{this.props.dateDeSortie}</h2>
                 </div>
             </div>
         )

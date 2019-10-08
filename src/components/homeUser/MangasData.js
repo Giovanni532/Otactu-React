@@ -26,7 +26,11 @@ export default class MangasData extends React.Component {
                     id: index,
                     nameOfManga: manga[name].nameOfManga,
                     description: manga[name].description,
-                    createAt: manga[name].createAt,
+                    dateDeSortie: manga[name].dateDeSortie,
+                    autheur: manga[name].autheur,
+                    saison: manga[name].saison,
+                    type: manga[name].type,
+                    link: manga[name].link
                 })
                 index++;
             }
@@ -52,7 +56,17 @@ export default class MangasData extends React.Component {
                     :
                     <div className="parent-manga">
                         {this.state.mangasData.slice(-3).map(elem =>
-                            <CardManga key={elem.id} numberOfFolder={elem.id} nameOfManga={elem.nameOfManga} createAt={elem.createAt} description={elem.description} />
+                            <CardManga
+                                key={elem.id}
+                                numberOfFolder={elem.id}
+                                nameOfManga={elem.nameOfManga}
+                                dateDeSortie={elem.dateDeSortie}
+                                description={elem.description}
+                                link={elem.link}
+                                autheur={elem.autheur}
+                                saison={elem.saison}
+                                type={elem.type}
+                                 />
                         )}
                     </div>
                 }

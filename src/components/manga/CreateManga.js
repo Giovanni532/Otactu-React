@@ -54,6 +54,9 @@ export default class CreateManga extends React.Component {
                 nameOfManga: this.state.nameOfManga,
                 description: this.state.description,
                 dateDeSortie: this.state.dateDeSortie,
+                autheur: this.state.autheur,
+                saison: this.state.saison,
+                link: this.state.link,
                 creePar: this.state.uid,
                 type: this.state.type
             })
