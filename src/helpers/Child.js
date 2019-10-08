@@ -7,7 +7,7 @@ export const Child = ({ location }) => {
       <div className="card-manga-infos">
         <div>
           <h2>{location.state.nameOfManga}</h2>
-          <p>{location.state.description}</p>
+          <p>{location.state.autheur}</p>
         </div>
         <h2 className="card-manga-pricing">{location.state.createAt}</h2>
       </div>
