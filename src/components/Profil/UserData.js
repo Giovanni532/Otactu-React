@@ -3,7 +3,6 @@ import firebase from 'firebase/app'
 import { Redirect } from 'react-router-dom'
 import LoaderCircle from '../../loaders/LoaderCircle'
 import FileUploader from 'react-firebase-file-uploader'
-import image from '../../assets/userprofile.png'
 // import ProgressBar from '../../helpers/progressBar'
 
 export default class UserData extends React.Component {
@@ -17,8 +16,8 @@ export default class UserData extends React.Component {
             edited: true,
             redirect: false,
             loaded: false,
-            image: "",
-            imageUrl: image,
+            image: '',
+            imageUrl: '',
             progress: 0,
             uid: firebase.auth().currentUser.uid
         }
@@ -49,9 +48,30 @@ export default class UserData extends React.Component {
         })
     }
 
-    UNSAFE_componentWillMount() {
-        this.fetchUserData()
+    handleUploadStart = () => {
+        this.setState({ progress: 0 })
     }
+
+    fileOnProgress = progress => {
+        this.setState({ progress: progress })
+    }
+
+    handleUploadSucces = filename => {
+        let deleteImage = this.state.image
+        if (this.state.image !== filename) {
+            this.setState({
+                image: filename,
+                progress: 100
+            })
+            firebase.storage().ref('avatars/' + this.state.uid).child(deleteImage).delete()
+        }
+
+        firebase.storage().ref('avatars/' + this.state.uid).child(filename).getDownloadURL()
+            .then(url => this.setState({
+                imageUrl: url
+            }))
+    }
+
 
     signOut = () => {
         firebase.auth().signOut()
@@ -80,34 +100,13 @@ export default class UserData extends React.Component {
         })
     }
 
-
-    handleUploadStart = () => {
-        this.setState({ progress: 0 })
-    }
-
-    fileOnProgress = progress => {
-        this.setState({ progress: progress })
-    }
-
-    handleUploadSucces = filename => {
-        let deleteImage = this.state.image
-        if (this.state.image !== filename) {
-            this.setState({
-                image: filename,
-                progress: 100
-            })
-            firebase.storage().ref('avatars/' + this.state.uid).child(deleteImage).delete()
-        }
-
-        firebase.storage().ref('avatars/' + this.state.uid).child(filename).getDownloadURL()
-            .then(url => this.setState({
-                imageUrl: url
-            }))
-    }
-
     handleSubmit(event) {
         event.preventDefault()
         this.updateData()
+    }
+
+    UNSAFE_componentWillMount() {
+        this.fetchUserData()
     }
 
     render() {
@@ -142,8 +141,7 @@ export default class UserData extends React.Component {
                             storageRef={firebase.storage().ref('avatars/' + this.state.uid)}
                             onUploadSuccess={this.handleUploadSucces}
                             onProgress={this.fileOnProgress}
-                        />
-                        {/* remove this comment for progress bar in file upload */}
+                        />                        {/* remove this comment for progress bar in file upload */}
                         {/* {this.state.progress === 0 ? null : <ProgressBar progress={this.state.progress} />} */}
                         <label className="label">
                             prenom
