@@ -15,7 +15,6 @@ export default class MangasData extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({ loaded: true })
         const data = firebase.database().ref('mangas')
         data.on('value', (snapshot) => {
             const manga = snapshot.val();

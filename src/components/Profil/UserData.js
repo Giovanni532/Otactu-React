@@ -126,7 +126,10 @@ export default class UserData extends React.Component {
                             <p>votre email : {this.state.email}</p>
                             <p>votre prenom : {this.state.firstName}</p>
                             <p>votre nom : {this.state.lastName}</p>
-                            <Link to={'users/' + this.state.uid + '/mangas'}>Mes Mangas</Link>
+                            <Link to={{
+                                pathname:'users/' + this.state.uid + '/mangas',
+                                state: {uid: this.state.uid}
+                                }}>Mes Mangas</Link>
                             <button className="button-logout" onClick={() => this.setState({ edited: false })}>Editez</button>
                             <button style={{ marginBottom: 10 }} className="button-logout" onClick={this.signOut.bind(this)}>deconnexion</button>
                         </div>

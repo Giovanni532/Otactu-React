@@ -23,7 +23,7 @@ const RouterNavigator = () => {
         <PrivateRoute path="/users/*/mangas" component={UserMangas} />
         <PrivateRoute path="/mangas/*" component={Child} />
         <PrivateRoute path="/manga" component={Manga} />
-        <PrivateRoute path="/user" component={Profil} />
+        <PrivateRoute path="/profil" component={Profil} />
       </div>
     </Router>
   )
