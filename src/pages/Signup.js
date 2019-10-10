@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from 'firebase/app'
 import { Redirect, Link } from 'react-router-dom'
 import LoaderCircle from '../loaders/LoaderCircle'
+import Image from '../assets/gokuBack.png'
 
 export default class Signup extends React.Component {
     constructor() {
@@ -37,7 +38,7 @@ export default class Signup extends React.Component {
                     this.setState({ redirect: true })
                 })
                 .catch(() => {
-                    this.setState({ loader: false, error: "veuillez entrez votre identifiant ou votre email est deja enregistrer" })
+                    this.setState({ loader: false, error: "Email deja enregistrer veuillez vous connectez" })
                 })
         } else {
             this.setState({ loader: false, error: "vos mot de passe ne correspondent pas" })
@@ -69,25 +70,34 @@ export default class Signup extends React.Component {
             return <Redirect to='/home' />;
         }
         return (
-            <div className="parent-form">
-                <h2 className="title">Inscrivez-vous !</h2>
+            <div className="wrapper-form">
+                <div>
+                    <img src={Image}  className="image-form-signup" alt="User Icon" />
+                </div>
                 <form onSubmit={this.handleSubmit} className="form">
-                    <label className="label">
-                        email
-                        </label>
-                    <input className="input" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-                    <label className="label">
-                        mot de passe
-                        </label>
-                    <input className="input" type="text" name="password" value={this.state.password} onChange={this.handleChange} />
-                    <label className="label">
-                        confirmer mot de passe
-                        </label>
-                    <input className="input" type="text" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} />
-                    <input className="button" type="submit" value="Envoyer" />
+                    <input
+                        className="input-form"
+                        type="text"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        placeholder="Votre email" />
+                    <input
+                        className="input-form"
+                        type="text" name="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        placeholder="Votre mot de passe" />
+                                          <input
+                        className="input-form"
+                        type="text" name="confirmPassword"
+                        value={this.state.confirmPassword}
+                        onChange={this.handleChange}
+                        placeholder="Confirmer votre mot de passe" />
+                    <input className="button-form" type="submit" value="S'inscrire" />
                 </form>
                 {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
-                <p className="title">Tu as deja un compte ? <Link className="link" to="/login">connect toi !</Link></p>
+                <p className="title-signup">Tu as déjà un compte ? <Link className="link" to="/login">connecte toi</Link></p>
             </div>
         )
     }
