@@ -72,7 +72,7 @@ export default class Signup extends React.Component {
         return (
             <div className="wrapper-form">
                 <div>
-                    <img src={Image} className="image-form-signup" alt="User Icon" />
+                    <img src={Image} className="image-form-signup" alt="goku de dos" />
                 </div>
                 <form onSubmit={this.handleSubmit} className="form">
                     <input
