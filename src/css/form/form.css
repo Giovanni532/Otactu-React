@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .input-form {
@@ -35,7 +35,7 @@
 }
 
 .image-form-signup {
-    margin-top: 30px; 
+    margin-top: 30px;
     margin-bottom: 60px;
     height: 300px;
 }
@@ -55,7 +55,7 @@
 
 .title-signup {
     text-align: center;
-    margin-bottom: 38px; 
+    margin-bottom: 38px;
 }
 
 .link {

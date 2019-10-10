@@ -72,7 +72,7 @@ export default class Signup extends React.Component {
         return (
             <div className="wrapper-form">
                 <div>
-                    <img src={Image}  className="image-form-signup" alt="User Icon" />
+                    <img src={Image} className="image-form-signup" alt="User Icon" />
                 </div>
                 <form onSubmit={this.handleSubmit} className="form">
                     <input
@@ -88,7 +88,7 @@ export default class Signup extends React.Component {
                         value={this.state.password}
                         onChange={this.handleChange}
                         placeholder="Votre mot de passe" />
-                                          <input
+                    <input
                         className="input-form"
                         type="text" name="confirmPassword"
                         value={this.state.confirmPassword}

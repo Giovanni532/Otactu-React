@@ -59,7 +59,7 @@ export default class Login extends React.Component {
         return (
             <div className="wrapper-form">
                 <div>
-                    <img src={Image}  className="image-form" alt="User Icon" />
+                    <img src={Image} className="image-form" alt="User Icon" />
                 </div>
                 <form onSubmit={this.handleSubmit} className="form">
                     <input
