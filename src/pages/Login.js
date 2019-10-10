@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from 'firebase/app'
 import { Redirect, Link } from 'react-router-dom'
 import LoaderCircle from '../loaders/LoaderCircle'
+import Image from '../assets/gokeFace.png'
 
 export default class Login extends React.Component {
     constructor() {
@@ -56,18 +57,27 @@ export default class Login extends React.Component {
             return <Redirect to='/home' />;
         }
         return (
-            <div className="parent-form">
-                <h2 className="title">Connectez-vous !</h2>
+            <div className="wrapper-form">
+                <div>
+                    <img src={Image}  className="image-form" alt="User Icon" />
+                </div>
                 <form onSubmit={this.handleSubmit} className="form">
-                    <label className="label">
-                        email
-                        </label>
-                    <input className="input" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-                    <label className="label">
-                        mot de passe
-                        </label>
-                    <input className="input" type="text" name="password" value={this.state.password} onChange={this.handleChange} />
-                    <input className="button" type="submit" value="Envoyer" />
+                    <input
+                        className="input-form"
+                        id="login"
+                        type="text"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        placeholder="Votre email" />
+                    <input
+                        className="input-form"
+                        id="password"
+                        type="text" name="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        placeholder="Votre mot de passe" />
+                    <input className="button-form" type="submit" value="Se connecter" />
                 </form>
                 {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
                 <p className="title">Tu n'as pas de compte ? <Link className="link" to="/signup">inscris toi</Link></p>

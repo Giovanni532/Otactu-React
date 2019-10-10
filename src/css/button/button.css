@@ -1,22 +1,23 @@
-.button {
+.button-form {
     margin-top: 20px;
-    width: 100px;
     border-radius: 25px;
-    border: 1px solid #000;
-    background-color: #fff;
-    color: #000;
+    background-color: #BF9211;
+    color: #fff;
     outline: none;
     transition: 0.5s;
+    border: none;
+    padding: 5px;
+    text-align: center;
 }
 
-.button:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-.button:active {
+.button-form:hover {
     background-color: #fff;
-    color: #000;
+    color: #BF9211;
+}
+
+.button-form:active {
+    background-color: #fff;
+    color: #BF9211;
 }
 
 .button-logout {
