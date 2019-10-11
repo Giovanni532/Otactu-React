@@ -113,14 +113,14 @@ export default class CreateManga extends React.Component {
                                 name="nameOfManga"
                                 value={this.state.nameOfManga}
                                 onChange={this.handleChange}
-                                placeholder="Le nom du manga" />
+                                placeholder="Le nom du manga*" />
                             <input
                                 className="input-form-manga"
                                 type="text"
                                 name="autheur"
                                 value={this.state.autheur}
                                 onChange={this.handleChange}
-                                placeholder="L'autheur du manga" />
+                                placeholder="L'autheur du manga*" />
                             <input
                                 className="input-form-manga"
                                 type="text"
@@ -134,7 +134,7 @@ export default class CreateManga extends React.Component {
                                 name="dateDeSortie"
                                 value={this.state.dateDeSortie}
                                 onChange={this.handleChange}
-                                placeholder="Quand est-il sortie" />
+                                placeholder="Quand est-il sortie*" />
                             <select name="type" value={this.state.type} onChange={this.handleChange}>
                                 <option value="Manga">Manga</option>
                                 <option value="Anime">Anime</option>
@@ -154,7 +154,7 @@ export default class CreateManga extends React.Component {
                             name="description"
                             value={this.state.description}
                             onChange={this.handleChange}
-                            placeholder="La description du manga" />
+                            placeholder="La description du manga*" />
                         <input
                             className="button-logout"
                             type="submit"

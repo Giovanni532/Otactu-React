@@ -118,7 +118,7 @@ export default class UserData extends React.Component {
         return (
             <div className="wrapper-profil">
                 <div className="image-wrapper">
-                    <img className="image-grid" src={Image} alt="vegeto gogeta profil" />
+                    <img src={Image} alt="vegeto gogeta profil" />
                 </div>
                 {this.state.edited ?
                     <div className="account-wrapper">

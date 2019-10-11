@@ -65,8 +65,9 @@
 }
 
 .form-wrapper-manga {
+    margin-top: 50px;
     margin-left: 50px;
-    height: 600px;
+    height: 575px;
     width: 500px;
     background-color: #222;
     border-radius: 10px;
@@ -114,4 +115,8 @@ select {
     color: #747474;
     outline: none;
     width: 200px;
+}
+
+.image-grid {
+    height: 600px;
 }

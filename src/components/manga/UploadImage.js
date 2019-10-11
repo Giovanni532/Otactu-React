@@ -45,7 +45,7 @@ export default class UploadeImage extends React.Component {
                 onProgress={this.fileOnProgress}
                 className="uploader-file"
             >
-            Ajoutez une image au manga
+            Ajoutez une image au manga*
             </CustomUploadButton>
         )
     }
