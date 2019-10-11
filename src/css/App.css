@@ -3,3 +3,11 @@
 @import './button/button.css';
 @import './image/profil.css';
 @import './cardManga/cardManga.css';
+
+html {
+    background-color: #000;
+}
+
+#root {
+    margin: 0;
+}

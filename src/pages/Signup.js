@@ -38,7 +38,7 @@ export default class Signup extends React.Component {
                     this.setState({ redirect: true })
                 })
                 .catch(() => {
-                    this.setState({ loader: false, error: "Email deja enregistrer veuillez vous connectez" })
+                    this.setState({ loader: false, error: "Veuillez remplir tout les champs ou email deja enregistrer veuillez vous connectez" })
                 })
         } else {
             this.setState({ loader: false, error: "vos mot de passe ne correspondent pas" })
