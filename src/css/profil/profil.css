@@ -7,6 +7,11 @@
     background-color: #000;
 }
 
+.title-profil {
+    padding: 10px;
+    font-size: 20px;
+}
+
 .image-wrapper {
     display: flex;
     justify-content: center;
@@ -29,9 +34,26 @@
     padding: 10px;
 }
 
+.link-info {
+    color: #fff;
+    text-decoration: none;
+}
+
+.link-info:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
 .image-profil {
     height: 155px;
     width: 155px;
     border-radius: 50%;
     border: 1px #6CDED7 solid;
+}
+
+.wrapper-form-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

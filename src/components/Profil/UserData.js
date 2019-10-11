@@ -123,12 +123,14 @@ export default class UserData extends React.Component {
                 </div>
                 {this.state.edited ?
                     <div className="account-wrapper">
+                        <h2 className="title-profil">Information sur le compte</h2>
                         <img className="image-profil" src={this.state.imageUrl} alt={this.state.imageUrl} />
-                        <p className="account-info">votre email : {this.state.email}</p>
-                        <p className="account-info">votre prenom : {this.state.firstName}</p>
-                        <p className="account-info">votre nom : {this.state.lastName}</p>
+                        <p className="account-info">Votre email : {this.state.email}</p>
+                        <p className="account-info">Votre prenom : {this.state.firstName}</p>
+                        <p className="account-info">Votre nom : {this.state.lastName}</p>
                         <p className="account-info">
                             <Link
+                                className="link-info"
                                 to={{
                                     pathname: 'users/' + this.state.uid + '/mangas',
                                     state: { uid: this.state.uid }
@@ -137,14 +139,14 @@ export default class UserData extends React.Component {
                         </Link>
                         </p>
                         <div className="account">
-                            <button className="button-logout" onClick={() => this.setState({ edited: false })}>Editez</button>
+                            <button className="button-logout" onClick={() => this.setState({ edited: false })}>Editez mes information</button>
                             <button style={{ marginBottom: 10 }} className="button-logout" onClick={this.signOut.bind(this)}>deconnexion</button>
                         </div>
                     </div>
                     :
-                    <div className="parent-form">
-                        <h2 className="title">Votre compte</h2>
-                        <form onSubmit={this.handleSubmit} className="form">
+                    <div className="account-wrapper">
+                        <h2 className="title-profil">Editez mes information</h2>
+                        <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
                             <FileUploader
                                 accept="image/*"
                                 name="image"
