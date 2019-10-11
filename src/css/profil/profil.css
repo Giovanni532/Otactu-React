@@ -64,6 +64,7 @@
     padding: 7px;
     border-radius: 25px;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .uploader-file:hover {
