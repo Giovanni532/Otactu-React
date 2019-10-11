@@ -3,6 +3,7 @@ import LoaderCircle from '../../loaders/LoaderCircle'
 import { Redirect } from 'react-router-dom'
 import firebase from 'firebase/app'
 import UploadeImage from './UploadImage';
+import Image from '../../assets/vegetoGogeta.png'
 
 export default class CreateManga extends React.Component {
     constructor() {
@@ -97,46 +98,74 @@ export default class CreateManga extends React.Component {
             return <Redirect to='/home' />;
         }
         return (
-            <div className="parent-form">
-                <h2 className="title">ajoute ton manga !</h2>
-                <form onSubmit={this.handleSubmit} className="form">
-                    <p>L'image du manga *</p>
-                    <UploadeImage numberOfManga={this.fetchMangasData()} />
-                    <label className="label">
-                        le nom du mangas *
-                        </label>
-                    <input className="input" type="text" name="nameOfManga" value={this.state.nameOfManga} onChange={this.handleChange} />
-                    <label className="label">
-                        l'autheur *
-                        </label>
-                    <input className="input" type="text" name="autheur" value={this.state.autheur} onChange={this.handleChange} />
-                    <label className="label">
-                        combien de saison
-                        </label>
-                    <input className="input" type="text" name="saison" value={this.state.saison} onChange={this.handleChange} />
-                    <label className="label">
-                        la description *
-                        </label>
-                    <input className="input" type="text" name="description" value={this.state.description} onChange={this.handleChange} />
-                    <label className="label">
-                        Date de sortie *
-                        </label>
-                    <input className="input" type="text" name="dateDeSortie" value={this.state.dateDeSortie} onChange={this.handleChange} />
-                    <label className="label">
-                        quelle type *
-                        </label>
-                    <select name="type" value={this.state.type} onChange={this.handleChange}>
-                        <option value="Manga">Manga</option>
-                        <option value="Anime">Anime</option>
-                    </select>
-                    <label className="label">
-                        lien util
-                        </label>
-                    <input className="input" type="text" name="link" value={this.state.link} onChange={this.handleChange} />
-                    <input className="button" type="submit" value="Envoyer" />
-                </form>
-                {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
+            <div className="wrapper-profil">
+                <div className="image-wrapper">
+                    <img className="image-grid" src={Image} alt="vegeto gogeta profil" />
+                </div>
+                <div className="form-wrapper-manga">
+                    <h2 className="title-profil">ajoute ton manga !</h2>
+                    <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
+                        <UploadeImage numberOfManga={this.fetchMangasData()} />
+                        <div className="grid-wrapper-manga">
+                            <input
+                                className="input-form-manga"
+                                type="text"
+                                name="nameOfManga"
+                                value={this.state.nameOfManga}
+                                onChange={this.handleChange}
+                                placeholder="Le nom du manga" />
+                            <input
+                                className="input-form-manga"
+                                type="text"
+                                name="autheur"
+                                value={this.state.autheur}
+                                onChange={this.handleChange}
+                                placeholder="L'autheur du manga" />
+                            <input
+                                className="input-form-manga"
+                                type="text"
+                                name="saison"
+                                value={this.state.saison}
+                                onChange={this.handleChange}
+                                placeholder="Combien de saison" />
+                            <input
+                                className="input-form-manga"
+                                type="text"
+                                name="dateDeSortie"
+                                value={this.state.dateDeSortie}
+                                onChange={this.handleChange}
+                                placeholder="Quand est-il sortie" />
+                            <select name="type" value={this.state.type} onChange={this.handleChange}>
+                                <option value="Manga">Manga</option>
+                                <option value="Anime">Anime</option>
+                            </select>
+                            <input
+                                className="input-form-manga"
+                                type="text"
+                                name="link"
+                                value={this.state.link}
+                                onChange={this.handleChange}
+                                placeholder="Des liens utils" />
+                        </div>
+                        <textarea
+                            rows="4"
+                            className="textarea-form-manga"
+                            type="text"
+                            name="description"
+                            value={this.state.description}
+                            onChange={this.handleChange}
+                            placeholder="La description du manga" />
+                        <input
+                            className="button-logout"
+                            type="submit"
+                            value="Envoyer"
+                        />
+
+                    </form>
+                    {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
+                </div>
             </div>
+
         )
     }
 }

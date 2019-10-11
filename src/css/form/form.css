@@ -63,3 +63,55 @@
 .link:hover {
     color: #fff;
 }
+
+.form-wrapper-manga {
+    margin-left: 50px;
+    height: 600px;
+    width: 500px;
+    background-color: #222;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.grid-wrapper-manga {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-form-manga {
+    background: #222;
+    color: #fff;
+    border: #6CDED7 1px solid;
+    border-radius: 25px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+    outline: none;
+}
+
+.textarea-form-manga {
+    background: #222;
+    color: #fff;
+    border: #6CDED7 1px solid;
+    border-radius: 25px;
+    width: 400px;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+    outline: none;
+}
+
+.select {
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+}
+
+select {
+    border: 1px solid #6CDED7;
+    background-color: #222;
+    color: #747474;
+    outline: none;
+    width: 200px;
+}

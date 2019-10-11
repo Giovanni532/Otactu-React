@@ -1,6 +1,6 @@
 import React from 'react'
 import firebase from 'firebase/app'
-import FileUploader from 'react-firebase-file-uploader'
+import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton'
 
 export default class UploadeImage extends React.Component {
     constructor() {
@@ -36,14 +36,17 @@ export default class UploadeImage extends React.Component {
 
     render() {
         return (
-            <FileUploader
+            <CustomUploadButton
                 accept="image/*"
                 name="image"
                 onUploadStart={this.handleUploadStart}
                 storageRef={firebase.storage().ref('mangas/' + this.props.numberOfManga)}
                 onUploadSuccess={this.handleUploadSucces}
                 onProgress={this.fileOnProgress}
-            />
+                className="uploader-file"
+            >
+            Ajoutez une image au manga
+            </CustomUploadButton>
         )
     }
 }

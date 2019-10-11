@@ -144,8 +144,8 @@ export default class UserData extends React.Component {
                     </div>
                     :
                     <div className="account-wrapper">
-                        <h2 style={{marginTop: 10}} className="title-profil">Editez mes information</h2>
-                        <form style={{marginTop: 20}} onSubmit={this.handleSubmit} className="wrapper-form-profil">
+                        <h2 style={{ marginTop: 10 }} className="title-profil">Editez mes information</h2>
+                        <form style={{ marginTop: 20 }} onSubmit={this.handleSubmit} className="wrapper-form-profil">
                             <CustomUploadButton
                                 accept="image/*"
                                 name="image"
@@ -158,21 +158,21 @@ export default class UserData extends React.Component {
                                 Ajoutez une image
                             </CustomUploadButton>
                             {this.state.progress === 0 ? null : <p className="loading-progress">Chargement de l'image {this.state.progress}%</p>}
-                            <input 
-                            style={{marginTop: 20}}
-                            className="input-form-profil" 
-                            type="text" 
-                            name="firstName" 
-                            value={this.state.firstName} 
-                            onChange={this.handleChange} 
-                            placeholder="Votre prénom" />
-                            <input 
-                            className="input-form-profil" 
-                            type="text" 
-                            name="lastName" 
-                            value={this.state.lastName} 
-                            onChange={this.handleChange}
-                            placeholder="Votre nom" />
+                            <input
+                                style={{ marginTop: 20 }}
+                                className="input-form-profil"
+                                type="text"
+                                name="firstName"
+                                value={this.state.firstName}
+                                onChange={this.handleChange}
+                                placeholder="Votre prénom" />
+                            <input
+                                className="input-form-profil"
+                                type="text"
+                                name="lastName"
+                                value={this.state.lastName}
+                                onChange={this.handleChange}
+                                placeholder="Votre nom" />
                             <input className="button-logout" type="submit" value="Modifier" />
                         </form>
                         {this.state.loaded ? <LoaderCircle /> : null}
