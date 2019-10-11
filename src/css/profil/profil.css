@@ -75,3 +75,23 @@
     background-color: #6CDED7;
     color: #fff;
 }
+
+.loading-progress {
+    margin: 20px;
+}
+
+.input-form-profil {
+    background: #222;
+    color: #fff;
+    border: #6CDED7 1px solid;
+    border-radius: 25px;
+    width: 250px;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.input-form-profil:focus {
+    width: 300px;
+}
