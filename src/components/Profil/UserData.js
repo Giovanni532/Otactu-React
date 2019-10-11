@@ -2,9 +2,8 @@ import React from 'react'
 import firebase from 'firebase/app'
 import { Redirect, Link } from 'react-router-dom'
 import LoaderCircle from '../../loaders/LoaderCircle'
-import FileUploader from 'react-firebase-file-uploader'
+import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton'
 import Image from '../../assets/vegetoGogetaForCreateManga.png'
-// import ProgressBar from '../../helpers/progressBar'
 
 export default class UserData extends React.Component {
     constructor(props) {
@@ -147,24 +146,32 @@ export default class UserData extends React.Component {
                     <div className="account-wrapper">
                         <h2 className="title-profil">Editez mes information</h2>
                         <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
-                            <FileUploader
+                            <CustomUploadButton
                                 accept="image/*"
                                 name="image"
                                 onUploadStart={this.handleUploadStart}
                                 storageRef={firebase.storage().ref('avatars/' + this.state.uid)}
                                 onUploadSuccess={this.handleUploadSucces}
                                 onProgress={this.fileOnProgress}
-                            />
-                            {/* remove this comment for progress bar in file upload */}
-                            {/* {this.state.progress === 0 ? null : <ProgressBar progress={this.state.progress} />} */}
-                            <label className="label">
-                                prenom
-                    </label>
-                            <input className="input" type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
-                            <label className="label">
-                                nom
-                    </label>
-                            <input className="input" type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} />
+                                className="uploader-file"
+                            >
+                                Ajoutez une image
+                            </CustomUploadButton>
+                            {this.state.progress === 0 ? null : <p>Chargement de l'image {this.state.progress}%</p>}
+                            <input 
+                            className="input" 
+                            type="text" 
+                            name="firstName" 
+                            value={this.state.firstName} 
+                            onChange={this.handleChange} 
+                            placeholder="Votre prénom" />
+                            <input 
+                            className="input" 
+                            type="text" 
+                            name="lastName" 
+                            value={this.state.lastName} 
+                            onChange={this.handleChange}
+                            placeholder="Votre nom" />
                             <input style={{ marginBottom: 10 }} className="button" type="submit" value="Modifier" />
                         </form>
                         {this.state.loaded ? <LoaderCircle /> : null}
