@@ -3,7 +3,7 @@ import firebase from 'firebase/app'
 import { Redirect, Link } from 'react-router-dom'
 import LoaderCircle from '../../loaders/LoaderCircle'
 import FileUploader from 'react-firebase-file-uploader'
-import Image from '../../assets/userprofile.png'
+import Image from '../../assets/vegetoGogetaForCreateManga.png'
 // import ProgressBar from '../../helpers/progressBar'
 
 export default class UserData extends React.Component {
@@ -117,49 +117,58 @@ export default class UserData extends React.Component {
             return <Redirect to='/' />;
         }
         return (
-            this.state.edited ?
-                <div>
-                    <div className="parent-form">
-                        <div className="form">
-                            <p style={{ marginTop: 10 }}>Information sur le compte</p>
-                            <img className="image-profil" src={this.state.imageUrl} alt={this.state.imageUrl} />
-                            <p>votre email : {this.state.email}</p>
-                            <p>votre prenom : {this.state.firstName}</p>
-                            <p>votre nom : {this.state.lastName}</p>
-                            <Link to={{
-                                pathname:'users/' + this.state.uid + '/mangas',
-                                state: {uid: this.state.uid}
-                                }}>Mes Mangas</Link>
+            <div className="wrapper-profil">
+                <div className="image-wrapper">
+                    <img className="image-grid" src={Image} alt="vegeto gogeta profil" />
+                </div>
+                {this.state.edited ?
+                    <div className="account-wrapper">
+                        <img className="image-profil" src={this.state.imageUrl} alt={this.state.imageUrl} />
+                        <p className="account-info">votre email : {this.state.email}</p>
+                        <p className="account-info">votre prenom : {this.state.firstName}</p>
+                        <p className="account-info">votre nom : {this.state.lastName}</p>
+                        <p className="account-info">
+                            <Link
+                                to={{
+                                    pathname: 'users/' + this.state.uid + '/mangas',
+                                    state: { uid: this.state.uid }
+                                }}>
+                                Mes Mangas
+                        </Link>
+                        </p>
+                        <div className="account">
                             <button className="button-logout" onClick={() => this.setState({ edited: false })}>Editez</button>
                             <button style={{ marginBottom: 10 }} className="button-logout" onClick={this.signOut.bind(this)}>deconnexion</button>
                         </div>
                     </div>
-                </div>
-                :
-                <div className="parent-form">
-                    <h2 className="title">Votre compte</h2>
-                    <form onSubmit={this.handleSubmit} className="form">
-                        <FileUploader
-                            accept="image/*"
-                            name="image"
-                            onUploadStart={this.handleUploadStart}
-                            storageRef={firebase.storage().ref('avatars/' + this.state.uid)}
-                            onUploadSuccess={this.handleUploadSucces}
-                            onProgress={this.fileOnProgress}
-                        />                        {/* remove this comment for progress bar in file upload */}
-                        {/* {this.state.progress === 0 ? null : <ProgressBar progress={this.state.progress} />} */}
-                        <label className="label">
-                            prenom
+                    :
+                    <div className="parent-form">
+                        <h2 className="title">Votre compte</h2>
+                        <form onSubmit={this.handleSubmit} className="form">
+                            <FileUploader
+                                accept="image/*"
+                                name="image"
+                                onUploadStart={this.handleUploadStart}
+                                storageRef={firebase.storage().ref('avatars/' + this.state.uid)}
+                                onUploadSuccess={this.handleUploadSucces}
+                                onProgress={this.fileOnProgress}
+                            />
+                            {/* remove this comment for progress bar in file upload */}
+                            {/* {this.state.progress === 0 ? null : <ProgressBar progress={this.state.progress} />} */}
+                            <label className="label">
+                                prenom
                     </label>
-                        <input className="input" type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
-                        <label className="label">
-                            nom
+                            <input className="input" type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
+                            <label className="label">
+                                nom
                     </label>
-                        <input className="input" type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} />
-                        <input style={{ marginBottom: 10 }} className="button" type="submit" value="Modifier" />
-                    </form>
-                    {this.state.loaded ? <LoaderCircle /> : null}
-                </div>
+                            <input className="input" type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} />
+                            <input style={{ marginBottom: 10 }} className="button" type="submit" value="Modifier" />
+                        </form>
+                        {this.state.loaded ? <LoaderCircle /> : null}
+                    </div>
+                }
+            </div>
         )
     }
 }

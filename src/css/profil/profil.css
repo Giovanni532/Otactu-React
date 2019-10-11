@@ -1,0 +1,37 @@
+.wrapper-profil {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #000;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.account-wrapper {
+    margin-left: 50px;
+    height: 500px;
+    width: 400px;
+    background-color: #222;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.account-info {
+    border-bottom: 1px #6CDED7 solid;
+    margin: 0;
+    padding: 10px;
+}
+
+.image-profil {
+    height: 155px;
+    width: 155px;
+    border-radius: 50%;
+    border: 1px #6CDED7 solid;
+}
