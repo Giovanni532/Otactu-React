@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import LoaderCircle from '../loaders/LoaderCircle'
+import Image from '../assets/gokuGod.png'
 
 export default class Contact extends React.Component {
     constructor() {
@@ -47,18 +48,20 @@ export default class Contact extends React.Component {
         }
 
         return (
-            <div className="wrapper-from">
+            <div className="wrapper-profil">
                 <div className="account-wrapper">
-                <h2 className="title">Contactez-nous</h2>
-                <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
-                    <input className="input" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-                    <input className="input" type="text" name="subject" value={this.state.subject} onChange={this.handleChange} />
-                    <input className="input" type="text" name="message" value={this.state.message} onChange={this.handleChange} />
-                    <input className="button" type="submit" value="Envoyer" />
-                </form>
-                {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
+                    <h2 className="title-profil">Contactez-nous</h2>
+                    <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
+                        <input className="input-form-profil" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+                        <input className="input-form-profil" type="text" name="subject" value={this.state.subject} onChange={this.handleChange} />
+                        <input className="input-form-profil" type="text" name="message" value={this.state.message} onChange={this.handleChange} />
+                        <input className="button-logout" type="submit" value="Envoyer" />
+                    </form>
+                    {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
                 </div>
-
+                <div className="image-wrapper">
+                    <img src={Image} alt="vegeto gogeta profil" style={{ height: 500 }} />
+                </div>
             </div>
         )
     }
