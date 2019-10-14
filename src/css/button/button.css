@@ -43,3 +43,26 @@
     color: #6CDED7;
     outline: none;
 }
+
+.button-contact {
+    margin: 40px 20px 0px 20px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 25px;
+    border: 1px solid  #E2006F;
+    background-color: #000;
+    color:  #E2006F;
+    outline: none;
+    transition: 0.5s;
+}
+
+.button-contact:hover {
+    background-color: #E2006F;
+    color: #000;
+    outline: none;
+}
+
+.button-contact:active {
+    background-color: #000;
+    color: #E2006F;
+    outline: none;
+}

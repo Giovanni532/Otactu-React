@@ -48,20 +48,33 @@ export default class Contact extends React.Component {
         }
 
         return (
-            <div className="wrapper-profil">
-                <div className="image-wrapper">
-                    <img src={Image} alt="vegeto gogeta profil" style={{ height: 500 }} />
+            <div className="wrapper-form">
+                <div>
+                    <img style={{height: 350}} src={Image} className="image-form" alt="goku super sayan god" />
                 </div>
-                <div style={{marginTop: 100}} className="account-wrapper">
-                    <h2 className="title-profil">Contactez-nous</h2>
-                    <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
-                        <input className="input-form-profil" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-                        <input className="input-form-profil" type="text" name="subject" value={this.state.subject} onChange={this.handleChange} />
-                        <input className="input-form-profil" type="text" name="message" value={this.state.message} onChange={this.handleChange} />
-                        <input className="button-logout" type="submit" value="Envoyer" />
-                    </form>
-                    {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
-                </div>
+                <form onSubmit={this.handleSubmit} className="form-manga">
+                    <input
+                        className="input-form-contact"
+                        type="text"
+                        name="Votre email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        placeholder="Votre email" />
+                    <input
+                        className="input-form-contact"
+                        type="text" name="subject"
+                        value={this.state.subject}
+                        onChange={this.handleChange}
+                        placeholder="Le sujet" />
+                                            <input
+                        className="input-form-contact"
+                        type="text" name="message"
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                        placeholder="Votre message" />
+                    <input className="button-contact" type="submit" value="Envoyer" />
+                </form>
+                {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
             </div>
         )
     }
