@@ -49,7 +49,10 @@ export default class Contact extends React.Component {
 
         return (
             <div className="wrapper-profil">
-                <div className="account-wrapper">
+                <div className="image-wrapper">
+                    <img src={Image} alt="vegeto gogeta profil" style={{ height: 500 }} />
+                </div>
+                <div style={{marginTop: 100}} className="account-wrapper">
                     <h2 className="title-profil">Contactez-nous</h2>
                     <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
                         <input className="input-form-profil" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
@@ -58,9 +61,6 @@ export default class Contact extends React.Component {
                         <input className="button-logout" type="submit" value="Envoyer" />
                     </form>
                     {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
-                </div>
-                <div className="image-wrapper">
-                    <img src={Image} alt="vegeto gogeta profil" style={{ height: 500 }} />
                 </div>
             </div>
         )
