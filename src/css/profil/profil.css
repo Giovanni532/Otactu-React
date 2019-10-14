@@ -59,7 +59,8 @@
 }
 
 .uploader-file {
-    background-color: #6CDED7;
+    background-color: #222;
+    border: 1px #6CDED7 solid;
     color: #fff;
     padding: 7px;
     border-radius: 25px;
@@ -69,7 +70,7 @@
 
 .uploader-file:hover {
     background-color: #fff;
-    color: #6CDED7;
+    color: #222;
 }
 
 .uploader-file:active {
