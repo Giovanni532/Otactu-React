@@ -11,6 +11,7 @@ import HomeUser from '../pages/HomeUser';
 import Manga from '../pages/Manga';
 import UserMangas from '../components/Profil/UserMangas';
 import Contact from '../pages/Contact';
+import CongratsScreen from '../pages/CongratsScreen'
 
 const RouterNavigator = () => {
   return (
@@ -21,6 +22,7 @@ const RouterNavigator = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/congratsContact" component={CongratsScreen}/>
         <PrivateRoute path="/home" component={HomeUser} />
         <PrivateRoute path="/users/*/mangas" component={UserMangas} />
         <PrivateRoute path="/mangas/*" component={Child} />
