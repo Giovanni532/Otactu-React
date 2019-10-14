@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import LoaderCircle from '../loaders/LoaderCircle'
 import Image from '../assets/gokuGod.png'
+import firebase from 'firebase/app'
 
 export default class Contact extends React.Component {
     constructor() {
@@ -18,6 +19,36 @@ export default class Contact extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    fetchEmailData = () => {
+        let lengthData = 0
+        const data = firebase.database().ref('emails')
+        data.on('value', (snapshot) => {
+            const manga = snapshot.val();
+            const mangaData = []
+            let index = 0
+            for (let name in manga) {
+                mangaData.push({
+                    subject: manga[name].subject,
+                })
+                index++;
+            }
+            lengthData = index
+        })
+        return lengthData
+    }
+
+    submitEmail = () => {
+        this.setState({ loader: true })
+        firebase.database().ref('emails/' + this.fetchEmailData()).set({
+            "Email du contact": this.state.email,
+            "Le sujet": this.state.subject,
+            "Le message": this.state.message
+        })
+            .then(() => {
+                this.setState({ loader: false, redirect: true })
+            })
     }
 
     handleChange(event) {
@@ -44,19 +75,19 @@ export default class Contact extends React.Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to='/home' />;
+            return <Redirect to='/congratsContact' />;
         }
 
         return (
             <div className="wrapper-form">
                 <div>
-                    <img style={{height: 350}} src={Image} className="image-form" alt="goku super sayan god" />
+                    <img style={{ height: 350 }} src={Image} className="image-form" alt="goku super sayan god" />
                 </div>
                 <form onSubmit={this.handleSubmit} className="form-manga">
                     <input
                         className="input-form-contact"
                         type="text"
-                        name="Votre email"
+                        name="email"
                         value={this.state.email}
                         onChange={this.handleChange}
                         placeholder="Votre email" />
@@ -66,7 +97,7 @@ export default class Contact extends React.Component {
                         value={this.state.subject}
                         onChange={this.handleChange}
                         placeholder="Le sujet" />
-                                            <input
+                    <input
                         className="input-form-contact"
                         type="text" name="message"
                         value={this.state.message}
