@@ -47,24 +47,18 @@ export default class Contact extends React.Component {
         }
 
         return (
-            <div className="parent-form">
+            <div className="wrapper-from">
+                <div className="account-wrapper">
                 <h2 className="title">Contactez-nous</h2>
-                <form onSubmit={this.handleSubmit} className="form">
-                    <label className="label">
-                        votre email
-                        </label>
+                <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
                     <input className="input" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-                    <label className="label">
-                        le sujet
-                        </label>
                     <input className="input" type="text" name="subject" value={this.state.subject} onChange={this.handleChange} />
-                    <label className="label">
-                        le message
-                        </label>
                     <input className="input" type="text" name="message" value={this.state.message} onChange={this.handleChange} />
                     <input className="button" type="submit" value="Envoyer" />
                 </form>
                 {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
+                </div>
+
             </div>
         )
     }
