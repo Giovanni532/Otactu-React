@@ -1,18 +1,29 @@
 .wrapper-manga {
-    background-color: #000;
-    padding-top: 100px;
-}
-
-.mangas-info {
-    border-radius: 10px;
-    margin: 0 auto;
-    width: 500px;
-    background-color: rgba(34, 34, 34, .4);
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 3fr;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     color: #fff;
+    background-color: #000;
+}
+
+.show-wrapper {
+    margin-left: 50px;
+    width: 500px;
+    background-color: #222;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.manga-info {
+    border-bottom: 1px #DADDE6 solid;
+    margin: 0;
+    padding: 10px;
+}
+
+.last-manga-info {
+    margin: 0;
+    padding: 10px; 
 }
 
 .mangas-info-image {
@@ -20,12 +31,4 @@
     border-top-right-radius: 10px;
     width: 500px;
     height: 200px;
-}
-
-.first-p {
-    padding: 20px 10px 10px 10px;
-}
-
-.p-show-manga {
-
 }
