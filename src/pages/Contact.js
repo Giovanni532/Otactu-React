@@ -75,7 +75,12 @@ export default class Contact extends React.Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to='/congratsContact' />;
+            return <Redirect to={{
+                pathname: '/congratsContact',
+                state: {
+                    email: this.state.email
+                }
+            }} />;
         }
 
         return (
