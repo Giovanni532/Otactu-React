@@ -5,9 +5,12 @@ export default class HomeUser extends React.Component {
     render() {
         return (
             <div>
-                <MangasData />
-                <SearchBar />
+                <div className="wrapper-home">
+                    <MangasData />
+                    <SearchBar />
+                </div>
             </div>
+
         )
     }
 }

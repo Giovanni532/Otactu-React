@@ -11,3 +11,7 @@ html {
 #root {
     margin: 0;
 }
+
+.wrapper-home {
+    background-color: #000;
+}
