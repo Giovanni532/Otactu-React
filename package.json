@@ -2,6 +2,10 @@
   "name": "otactu-web-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.11.3",
+    "node": "12.10.0"
+  },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "firebase": "^6.6.2",
