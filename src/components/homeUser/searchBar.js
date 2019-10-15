@@ -87,15 +87,20 @@ export default class SearchBar extends React.Component {
     render() {
         return (
             <div>
-                <div className="searchbar-input">
-                    <input
-                        placeholder="Recherche ton manga ..."
-                        type="search"
-                        name="query"
-                        value={this.state.query}
-                        onChange={this.handleChange}
-                    />
-                    <i className="fa fa-search" onSubmit={this.handleSubmit}></i>
+                <div className="wrap">
+                    <form className="search" onSubmit={this.handleSubmit}>
+                        <input
+                            type="search"
+                            className="searchTerm"
+                            placeholder="Recherche ton manga ..."
+                            value={this.state.query}
+                            name="query"
+                            onChange={this.handleChange}
+                        />
+                        <button type="submit" className="searchButton">
+                            <i className="fa fa-search"></i>
+                        </button>
+                    </form>
                 </div>
                 {this.state.query.length === 0 ?
                     <div className="parent-manga">

@@ -3,6 +3,7 @@
 @import './button/button.css';
 @import './profil/profil.css';
 @import './cardManga/cardManga.css';
+@import './searchBar/searchBar.css';
 
 html {
     background-color: #000;
