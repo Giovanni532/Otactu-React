@@ -89,13 +89,13 @@ export default class SearchBar extends React.Component {
             <div>
                 <div className="searchbar-input">
                     <input
-                    placeholder="Recherche ton manga ..."
-                    type="text"
-                    name="query"
-                    value={this.state.query}
-                    onChange={this.handleChange}
-                     />
-
+                        placeholder="Recherche ton manga ..."
+                        type="search"
+                        name="query"
+                        value={this.state.query}
+                        onChange={this.handleChange}
+                    />
+                    <i className="fa fa-search" onSubmit={this.handleSubmit}></i>
                 </div>
                 {this.state.query.length === 0 ?
                     <div className="parent-manga">
