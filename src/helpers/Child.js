@@ -2,15 +2,11 @@ import React from 'react'
 
 export const Child = ({ location }) => {
   return (
-    <div className="card-manga" key={location.state.numberOfFolder}>
-      <img src={location.state.imageUrl} alt={location.state.nameOfManga} />
-      <div className="card-manga-infos">
-        <div>
-          <h2>{location.state.nameOfManga}</h2>
-          <p>{location.state.autheur}</p>
-        </div>
-        <h2 className="card-manga-pricing">{location.state.createAt}</h2>
-      </div>
+    <div className="mangas-info">
+      <img src={location.state.imageUrl} alt={location.state.nameOfManga}/>
+      <p>Manga: {location.state.nameOfManga}</p>
+      <p>L'auteur: {location.state.autheur}</p>
+      <p>Sortie pour la premiere fois le: {location.state.dateDeSortie}</p>
     </div>
   );
 }
