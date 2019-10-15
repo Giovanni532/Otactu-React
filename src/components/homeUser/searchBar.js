@@ -1,6 +1,5 @@
 import React from 'react'
 import firebase from 'firebase/app'
-import { InputGroup, FormControl, Button } from 'react-bootstrap'
 import CardManga from './CardManga'
 
 export default class SearchBar extends React.Component {
@@ -38,6 +37,7 @@ export default class SearchBar extends React.Component {
     }
 
     handleChange = event => {
+        event.preventDefault()
         const value = event.target.value
         const name = event.target.name
 
@@ -87,18 +87,16 @@ export default class SearchBar extends React.Component {
     render() {
         return (
             <div>
-                <InputGroup className="mb-3" onSubmit={this.handleSubmit}>
-                    <FormControl
-                        placeholder="Recherche ton manga"
-                        type="text"
-                        name="query"
-                        value={this.state.query}
-                        onChange={this.handleChange}
-                    />
-                    <InputGroup.Prepend>
-                        <Button onSubmit={this.handleSubmit}>Rechercher</Button>
-                    </InputGroup.Prepend>
-                </InputGroup>
+                <div className="searchbar-input">
+                    <input
+                    placeholder="Recherche ton manga ..."
+                    type="text"
+                    name="query"
+                    value={this.state.query}
+                    onChange={this.handleChange}
+                     />
+
+                </div>
                 {this.state.query.length === 0 ?
                     <div className="parent-manga">
                         {this.state.mangasData.map(elem =>
