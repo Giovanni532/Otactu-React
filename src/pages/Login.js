@@ -71,7 +71,7 @@ export default class Login extends React.Component {
                         placeholder="Votre email" />
                     <input
                         className="input-form"
-                        type="text" name="password"
+                        type="password" name="password"
                         value={this.state.password}
                         onChange={this.handleChange}
                         placeholder="Votre mot de passe" />

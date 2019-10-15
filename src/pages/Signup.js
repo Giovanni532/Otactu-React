@@ -84,13 +84,13 @@ export default class Signup extends React.Component {
                         placeholder="Votre email" />
                     <input
                         className="input-form"
-                        type="text" name="password"
+                        type="password" name="password"
                         value={this.state.password}
                         onChange={this.handleChange}
                         placeholder="Votre mot de passe" />
                     <input
                         className="input-form"
-                        type="text" name="confirmPassword"
+                        type="password" name="confirmPassword"
                         value={this.state.confirmPassword}
                         onChange={this.handleChange}
                         placeholder="Confirmer votre mot de passe" />
