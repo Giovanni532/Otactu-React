@@ -1,0 +1,31 @@
+.wrapper-manga {
+    background-color: #000;
+    padding-top: 100px;
+}
+
+.mangas-info {
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 500px;
+    background-color: rgba(34, 34, 34, .4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.mangas-info-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 500px;
+    height: 200px;
+}
+
+.first-p {
+    padding: 20px 10px 10px 10px;
+}
+
+.p-show-manga {
+
+}

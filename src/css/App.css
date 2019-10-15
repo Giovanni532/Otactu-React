@@ -4,6 +4,7 @@
 @import './profil/profil.css';
 @import './cardManga/cardManga.css';
 @import './searchBar/searchBar.css';
+@import './showManga/showManga.css';
 
 html {
     background-color: #000;
