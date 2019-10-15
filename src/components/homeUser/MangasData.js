@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from 'firebase/app'
 import LoaderCircle from '../../loaders/LoaderCircle'
 import CardManga from './CardManga'
+import Image from '../../assets/gokuUI.png'
 
 export default class MangasData extends React.Component {
     _isMounted = true
@@ -50,10 +51,13 @@ export default class MangasData extends React.Component {
         return (
             <div>
                 <h2 className="title-mangas">Voici les 3 derniers mangas ajoutez !</h2>
+                <div className="manga-image">
+                    <img style={{ height: 400 }} src={Image} alt="goku UI" />
+                </div>
                 {this.state.loaded ?
                     <LoaderCircle />
                     :
-                    <div className="parent-manga">
+                    <div className="parent-manga" style={{marginTop:-150}}>
                         {this.state.mangasData.slice(-3).map(elem =>
                             <CardManga
                                 key={elem.id}
