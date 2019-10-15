@@ -125,8 +125,8 @@ export default class UserData extends React.Component {
                         <h2 className="title-profil">Information sur le compte</h2>
                         <img className="image-profil" src={this.state.imageUrl} alt={this.state.imageUrl} />
                         <p className="account-info">Votre email : {this.state.email}</p>
-                        <p className="account-info">Votre prenom : {this.state.firstName}</p>
-                        <p className="account-info">Votre nom : {this.state.lastName}</p>
+                        {this.state.firstName.length === 0 ? <p className="account-info">Veuillez ajoutez votre prénom</p> : <p className="account-info">Votre prenom : {this.state.firstName}</p>}
+                        {this.state.lastName.length === 0 ? <p className="account-info">Veuillez ajoutez votre nom</p> : <p className="account-info">Votre nom : {this.state.lastName}</p>}
                         <p className="account-info">
                             <Link
                                 className="link-info"
