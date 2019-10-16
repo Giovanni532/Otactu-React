@@ -120,7 +120,8 @@ export default class SearchBar extends React.Component {
                                 autheur={elem.autheur}
                                 saison={elem.saison}
                                 type={elem.type}
-                                creePar={elem.creePar} />
+                                creePar={elem.creePar}
+                            />
                         )}
                     </div>
                     :
