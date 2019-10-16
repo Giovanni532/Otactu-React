@@ -15,7 +15,7 @@
   color: #13A9EC;
 }
 
-.searchTerm:focus{
+.searchTerm:focus {
   color: #000;
 }
 
@@ -33,7 +33,7 @@
 
 /*Resize the wrap to see the search bar change!*/
 .wrap {
-    margin: 30px auto;
-    text-align: center;
-    width: 40%;
+  margin: 30px auto;
+  text-align: center;
+  width: 40%;
 }

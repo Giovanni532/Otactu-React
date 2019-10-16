@@ -57,7 +57,7 @@ export default class MangasData extends React.Component {
                 {this.state.loaded ?
                     <LoaderCircle />
                     :
-                    <div className="parent-manga" style={{marginTop:-150}}>
+                    <div className="parent-manga" style={{ marginTop: -150 }}>
                         {this.state.mangasData.slice(-3).map(elem =>
                             <CardManga
                                 key={elem.id}

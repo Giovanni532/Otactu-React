@@ -49,32 +49,32 @@ export default class UserMangas extends React.Component {
     componentWillUnmount() {
         this._isMounted = false
     }
-    
+
 
     render() {
         return (
             <div>
-            <h2 style={{backgroundColor: '#000', color: '#fff', textAlign: 'center', padding: 20, marginBottom: -20}}>Vos mangas</h2>
-            {this.state.loader === true ?
-                <LoaderCircle />
-                :
-                <div className="wrapper-manga">
-                    {this.state.mangasData.map(elem =>
-                        <CardManga
-                            key={elem.id}
-                            numberOfFolder={elem.id}
-                            nameOfManga={elem.nameOfManga}
-                            dateDeSortie={elem.dateDeSortie}
-                            description={elem.description}
-                            link={elem.link}
-                            autheur={elem.autheur}
-                            saison={elem.saison}
-                            type={elem.type}
-                            creePar={elem.creePar}
-                        />
-                    )}
-                </div>
-            }
+                <h2 style={{ backgroundColor: '#000', color: '#fff', textAlign: 'center', padding: 20, marginBottom: -20 }}>Vos mangas</h2>
+                {this.state.loader === true ?
+                    <LoaderCircle />
+                    :
+                    <div className="wrapper-manga">
+                        {this.state.mangasData.map(elem =>
+                            <CardManga
+                                key={elem.id}
+                                numberOfFolder={elem.id}
+                                nameOfManga={elem.nameOfManga}
+                                dateDeSortie={elem.dateDeSortie}
+                                description={elem.description}
+                                link={elem.link}
+                                autheur={elem.autheur}
+                                saison={elem.saison}
+                                type={elem.type}
+                                creePar={elem.creePar}
+                            />
+                        )}
+                    </div>
+                }
             </div>
         )
     }

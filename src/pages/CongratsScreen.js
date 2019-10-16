@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CongratsScreen = ({location}) => {
+const CongratsScreen = ({ location }) => {
     return (
         <div>
             <p>Merci {location.state.email}</p>
