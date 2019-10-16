@@ -133,10 +133,6 @@ select {
     transition: 0.5s;
 }
 
-.input-form-manga:focus {
-    width: 400px;
-}
-
 .form-manga {
     margin-top: 30px;
     display: flex;
