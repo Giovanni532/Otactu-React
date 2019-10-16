@@ -32,3 +32,8 @@
     width: 500px;
     height: 200px;
 }
+
+.desc-manga {
+    text-align: justify;
+    width: 300px !important;
+}

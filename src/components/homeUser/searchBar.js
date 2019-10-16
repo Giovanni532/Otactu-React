@@ -69,7 +69,8 @@ export default class SearchBar extends React.Component {
                     autheur: manga[name].autheur,
                     saison: manga[name].saison,
                     type: manga[name].type,
-                    link: manga[name].link
+                    link: manga[name].link,
+                    creePar: manga[name].creePar
                 })
                 index++;
             }
@@ -118,7 +119,8 @@ export default class SearchBar extends React.Component {
                                 link={elem.link}
                                 autheur={elem.autheur}
                                 saison={elem.saison}
-                                type={elem.type} />
+                                type={elem.type}
+                                creePar={elem.creePar} />
                         )}
                     </div>
                     :
