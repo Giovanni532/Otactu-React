@@ -61,7 +61,7 @@ export default class UpdateUserManga extends React.Component {
                     <img className="image-grid" src={Image} alt="vegeto gogeta profil" />
                 </div>
                 <div className="form-wrapper-manga">
-                    <h2 className="title-profil">ajoute ton manga !</h2>
+                    <h2 className="title-profil">Editez les informations du manga</h2>
                     <form onSubmit={this.handleSubmit} className="wrapper-form-profil">
                         <div className="grid-wrapper-manga">
                             <input
