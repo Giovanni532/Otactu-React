@@ -3,52 +3,57 @@ import Image from '../assets/gokuKamehaUi.png'
 import { Redirect } from 'react-router-dom'
 import firebase from 'firebase/app'
 
-export const Child = ({ location }) => {
+export default class Child extends React.Component {
 
-  const uid = firebase.auth().currentUser.uid
+  constructor(props) {
+    super(props);
 
-  const [redirect, setRedirect] = React.useState(false)
+    this.state = {
+      uid: firebase.auth().currentUser.uid,
+      redirect: false
+    }
+  }
 
-  return (
-    redirect ?
-      <Redirect to={{
-        pathname: '/mangas/' + location.state.nameOfManga + '/edit',
+  render() {
+    if (this.state.redirect) {
+      return <Redirect to={{
+        pathname: '/mangas/' + this.props.location.state.nameOfManga + '/edit',
         state: {
-          id: location.state.numberOfFolder,
-          nameOfManga: location.state.nameOfManga,
-          dateDeSortie: location.state.dateDeSortie,
-          description: location.state.description,
-          link: location.state.link,
-          autheur: location.state.autheur,
-          saison: location.state.saison,
-          type: location.state.type,
-          creePar: location.state.creePar
+          id: this.props.location.state.numberOfFolder,
+          nameOfManga: this.props.location.state.nameOfManga,
+          description: this.props.location.state.description,
+          dateDeSortie: this.props.location.state.dateDeSortie,
+          autheur: this.props.location.state.autheur,
+          type: this.props.location.state.type,
+          saison: this.props.location.state.saison,
+          link: this.props.location.state.link,
+          creePar: this.props.location.state.creePar
         }
-      }} />
-      :
-      <div className="wrapper-manga">
+      }} />;
+    }
+    return (
+      <div className="wrapper-manga" >
         <div className="image-wrapper">
           <img src={Image} alt="Goku ultra instinct" />
         </div>
         <div className="show-wrapper">
-          <img className="mangas-info-image" src={location.state.imageUrl} alt={location.state.nameOfManga} />
-          <p className="manga-info">Manga: {location.state.nameOfManga}</p>
-          <p className="manga-info">L'auteur: {location.state.autheur}</p>
-          <p className="manga-info">Sortie pour la premiere fois le: {location.state.dateDeSortie}</p>
-          <p className="manga-info">Nombre de saison: {location.state.saison}</p>
-          <p className="last-manga-info">Le type: {location.state.type}</p>
+          <img className="mangas-info-image" src={this.props.location.state.imageUrl} alt={this.props.location.state.nameOfManga} />
+          <p className="manga-info">Manga: {this.props.location.state.nameOfManga}</p>
+          <p className="manga-info">L'auteur: {this.props.location.state.autheur}</p>
+          <p className="manga-info">Sortie pour la premiere fois le: {this.props.location.state.dateDeSortie}</p>
+          <p className="manga-info">Nombre de saison: {this.props.location.state.saison}</p>
+          <p className="last-manga-info">Le type: {this.props.location.state.type}</p>
           {/* <p className="last-manga-info">Description:</p> */}
           {/* <div className="desc-manga">
-          <p>{location.state.description}</p>
+          <p>{this.props.location.state.description}</p>
           </div> */}
-          {location.state.creePar === uid ?
-            <div>
-              <button onClick={setRedirect(true)}>editez les informations du mangas</button>
-            </div>
+          {this.props.location.state.creePar === this.state.uid ?
+            <button onClick={() => this.setState({ redirect: true })}>Changer les informations</button>
             :
             null
           }
         </div>
       </div>
-  );
+    )
+  }
 }

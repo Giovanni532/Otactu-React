@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { PrivateRoute } from '../helpers/PrivateRoute'
-import { Child } from '../helpers/Child'
+import Child from '../helpers/Child'
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';

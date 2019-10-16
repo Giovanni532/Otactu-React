@@ -1,20 +1,23 @@
 import React from 'react'
 import firebase from 'firebase/app'
+import Image from '../../assets/vegetoGogeta.png'
+import { Redirect } from 'react-router-dom'
 
 export default class UpdateUserManga extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            id: this.props.numberOfFolder,
-            nameOfManga: this.props.nameOfManga,
-            dateDeSortie: this.props.dateDeSortie,
-            description: this.props.description,
-            link: this.props.link,
-            autheur: this.props.autheur,
-            saison: this.props.saison,
-            type: this.props.type,
-            creePar: this.props.creePar
+            id: this.props.location.state.id,
+            nameOfManga: this.props.location.state.nameOfManga,
+            dateDeSortie: this.props.location.state.dateDeSortie,
+            description: this.props.location.state.description,
+            link: this.props.location.state.link,
+            autheur: this.props.location.state.autheur,
+            saison: this.props.location.state.saison,
+            type: this.props.location.state.type,
+            creePar: this.props.location.state.creePar,
+            redirect: false
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -43,9 +46,15 @@ export default class UpdateUserManga extends React.Component {
             type: this.state.type,
             creePar: this.state.creePar
         })
+        .then(() => {
+            this.setState({redirect: true})
+        })
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to='/home' />;
+        }
         return (
             <div className="wrapper-profil">
                 <div className="image-wrapper">
