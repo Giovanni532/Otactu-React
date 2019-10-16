@@ -68,6 +68,7 @@ export default class UserMangas extends React.Component {
                             autheur={elem.autheur}
                             saison={elem.saison}
                             type={elem.type}
+                            creePar={elem.creePar}
                         />
                     )}
                 </div>
