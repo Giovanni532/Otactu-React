@@ -1,5 +1,5 @@
 import React from 'react'
-import MangasData from '../components/homeUser/MangasData'
+// import MangasData from '../components/homeUser/MangasData'
 import SearchBar from '../components/homeUser/searchBar'
 
 export default class HomeUser extends React.Component {
@@ -7,7 +7,7 @@ export default class HomeUser extends React.Component {
     render() {
         return (
             <div className="wrapper-home">
-                <MangasData />
+                {/* <MangasData /> */}
                 <SearchBar />
             </div>
         )
