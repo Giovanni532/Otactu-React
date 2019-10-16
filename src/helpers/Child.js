@@ -48,7 +48,7 @@ export default class Child extends React.Component {
           <p>{this.props.location.state.description}</p>
           </div> */}
           {this.props.location.state.creePar === this.state.uid ?
-            <button onClick={() => this.setState({ redirect: true })}>Changer les informations</button>
+            <button className="button-edit-manga" onClick={() => this.setState({ redirect: true })}>Editez les informations du mangas</button>
             :
             null
           }

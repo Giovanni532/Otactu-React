@@ -66,3 +66,26 @@
     color: #E2006F;
     outline: none;
 }
+
+.button-edit-manga {
+    margin: 20px 20px 10px 20px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 25px;
+    border: 1px solid #6CDED7;
+    background-color: #000;
+    color: #6CDED7;
+    outline: none;
+    transition: 0.5s;
+}
+
+.button-edit-manga:hover {
+    background-color: #6CDED7;
+    color: #000;
+    outline: none;
+}
+
+.button-edit-manga:active {
+    background-color: #000;
+    color: #6CDED7;
+    outline: none;
+}
