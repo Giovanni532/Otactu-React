@@ -53,10 +53,12 @@ export default class UserMangas extends React.Component {
 
     render() {
         return (
-            this.state.loader === true ?
+            <div>
+            <h2 style={{backgroundColor: '#000', color: '#fff', textAlign: 'center', padding: 20, marginBottom: -20}}>Vos mangas</h2>
+            {this.state.loader === true ?
                 <LoaderCircle />
                 :
-                <div className="parent-manga">
+                <div className="wrapper-manga">
                     {this.state.mangasData.map(elem =>
                         <CardManga
                             key={elem.id}
@@ -72,6 +74,8 @@ export default class UserMangas extends React.Component {
                         />
                     )}
                 </div>
+            }
+            </div>
         )
     }
 }
