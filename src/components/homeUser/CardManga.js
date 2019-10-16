@@ -40,7 +40,8 @@ export default class CardManga extends React.Component {
                     autheur: this.props.autheur,
                     type: this.props.type,
                     saison: this.props.saison,
-                    link: this.props.link
+                    link: this.props.link,
+                    creePar: this.props.creePar
                 }
             }} />;
         }

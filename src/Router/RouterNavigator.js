@@ -12,6 +12,7 @@ import Manga from '../pages/Manga';
 import UserMangas from '../components/Profil/UserMangas';
 import Contact from '../pages/Contact';
 import CongratsScreen from '../pages/CongratsScreen'
+import UpdateUserManga from '../components/Profil/UpdateUserManga';
 
 const RouterNavigator = () => {
   return (
@@ -26,6 +27,7 @@ const RouterNavigator = () => {
         <PrivateRoute path="/home" component={HomeUser} />
         <PrivateRoute path="/users/*/mangas" component={UserMangas} />
         <PrivateRoute path="/mangas/*" component={Child} />
+        <PrivateRoute path="/mangas/*/edit" component={UpdateUserManga} />
         <PrivateRoute path="/manga" component={Manga} />
         <PrivateRoute path="/profil" component={Profil} />
       </div>
