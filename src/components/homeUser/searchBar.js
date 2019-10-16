@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from 'firebase/app'
 import CardManga from './CardManga'
+import Image from '../../assets/gokuUI.png'
 
 export default class SearchBar extends React.Component {
     _isMounted = true
@@ -87,6 +88,9 @@ export default class SearchBar extends React.Component {
     render() {
         return (
             <div>
+                <div className="manga-image">
+                    <img style={{ height: 400 }} src={Image} alt="goku UI" />
+                </div>
                 <div className="wrap">
                     <form className="search" onSubmit={this.handleSubmit}>
                         <input
