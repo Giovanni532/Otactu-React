@@ -14,6 +14,7 @@ import Contact from '../pages/Contact';
 import CongratsScreen from '../pages/CongratsScreen'
 import UpdateUserManga from '../components/Profil/UpdateUserManga';
 import ResetPassword from '../pages/ResetPassword';
+import ChangePassword from '../pages/ChangePassword';
 
 const RouterNavigator = () => {
   return (
@@ -32,6 +33,7 @@ const RouterNavigator = () => {
         <PrivateRoute path="/mangas/*/edit" component={UpdateUserManga} />
         <PrivateRoute path="/manga" component={Manga} />
         <PrivateRoute path="/profil" component={Profil} />
+        <PrivateRoute path="/changePassword/*" component={ChangePassword} />
       </div>
     </Router>
   )

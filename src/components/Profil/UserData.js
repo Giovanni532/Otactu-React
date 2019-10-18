@@ -137,6 +137,15 @@ export default class UserData extends React.Component {
                                 Mes Mangas
                         </Link>
                         </p>
+                        <p className="account-info">
+                            <Link
+                                className="link-info"
+                                to={{
+                                    pathname: 'changePassword/' + this.state.uid
+                                }}>
+                                Changer de mot de passe
+                        </Link>
+                        </p>
                         <div className="account">
                             <button className="button-logout" onClick={() => this.setState({ edited: false })}>Editez mes information</button>
                             <button style={{ marginBottom: 10 }} className="button-logout" onClick={this.signOut.bind(this)}>deconnexion</button>
