@@ -13,6 +13,7 @@ import UserMangas from '../components/Profil/UserMangas';
 import Contact from '../pages/Contact';
 import CongratsScreen from '../pages/CongratsScreen'
 import UpdateUserManga from '../components/Profil/UpdateUserManga';
+import ResetPassword from '../pages/ResetPassword';
 
 const RouterNavigator = () => {
   return (
@@ -24,6 +25,7 @@ const RouterNavigator = () => {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/congratsContact" component={CongratsScreen} />
+        <Route exact path="/resetPassword" component={ResetPassword} />
         <PrivateRoute path="/home" component={HomeUser} />
         <PrivateRoute path="/users/*/mangas" component={UserMangas} />
         <PrivateRoute path="/mangas/*" component={Child} />

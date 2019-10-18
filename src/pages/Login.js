@@ -79,6 +79,7 @@ export default class Login extends React.Component {
                 </form>
                 {this.state.loader ? <LoaderCircle /> : <p className={classNamError}>{this.state.error}</p>}
                 <p className="title">Tu n'as pas de compte ? <Link className="link" to="/signup">inscris toi</Link></p>
+                <p className="title"><Link className="link" to="/resetPassword">Mot de passe oublié ?</Link></p>
             </div>
         )
     }
