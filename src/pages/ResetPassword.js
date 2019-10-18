@@ -47,16 +47,16 @@ export default class ResetPassword extends React.Component {
                         <Link to='/login'> se connecter </Link>
                     </div>
                     :
-                    <div>
+                    <div style={{marginTop: 50}}>
                         <form onSubmit={this.handleSubmit} className="form">
                             <input
-                                className="input-form"
+                                className="input-form-change"
                                 type="text"
                                 name="email"
                                 value={this.state.email}
                                 onChange={e => this.setState({ email: e.target.value })}
                                 placeholder="Votre email" />
-                            <input className="button-form" type="submit" value="Envoyer" />
+                            <input className="button-edit-manga" type="submit" value="Envoyer" />
                         </form>
                         <p className={classNamError}>{this.state.error}</p>
                     </div>
