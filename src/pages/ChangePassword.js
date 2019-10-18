@@ -33,7 +33,7 @@ export default class ChangePassword extends React.Component {
                 })
                 .catch(error => { this.setState({ error: error }) })
         })
-            .catch((error) => { this.setState({ error: error }) })
+        .catch(() => { this.setState({ error: "Vous n'avez pas remplis les champs" }) })
     }
 
     handleSubmit(event) {

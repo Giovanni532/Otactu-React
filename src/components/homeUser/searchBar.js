@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from 'firebase/app'
 import CardManga from './CardManga'
+import LoaderCircle from '../../loaders/LoaderCircle'
 import Image from '../../assets/gokuUI.png'
 
 export default class SearchBar extends React.Component {
@@ -12,6 +13,7 @@ export default class SearchBar extends React.Component {
             query: "",
             mangasData: [],
             filtered: [],
+            loader: true
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -77,6 +79,7 @@ export default class SearchBar extends React.Component {
             if (this._isMounted) {
                 this.setState({
                     mangasData: mangaData,
+                    loader: false
                 })
             }
         })
@@ -107,40 +110,43 @@ export default class SearchBar extends React.Component {
                         </button>
                     </form>
                 </div>
-                {this.state.query.length === 0 ?
-                    <div className="parent-manga">
-                        {this.state.mangasData.map(elem =>
-                            <CardManga
-                                key={elem.id}
-                                numberOfFolder={elem.id}
-                                nameOfManga={elem.nameOfManga}
-                                dateDeSortie={elem.dateDeSortie}
-                                description={elem.description}
-                                link={elem.link}
-                                autheur={elem.autheur}
-                                saison={elem.saison}
-                                type={elem.type}
-                                creePar={elem.creePar}
-                            />
-                        )}
-                    </div>
+                {this.state.loader ?
+                    <LoaderCircle />
                     :
-                    <div className="parent-manga">
-                        {this.state.filtered.map(elem =>
-                            <CardManga
-                                key={elem.id}
-                                numberOfFolder={elem.id}
-                                nameOfManga={elem.nameOfManga}
-                                dateDeSortie={elem.dateDeSortie}
-                                description={elem.description}
-                                link={elem.link}
-                                autheur={elem.autheur}
-                                saison={elem.saison}
-                                type={elem.type}
-                                creePar={elem.creePar}
-                            />
-                        )}
-                    </div>
+                    this.state.query.length === 0 ?
+                        <div className="parent-manga">
+                            {this.state.mangasData.map(elem =>
+                                <CardManga
+                                    key={elem.id}
+                                    numberOfFolder={elem.id}
+                                    nameOfManga={elem.nameOfManga}
+                                    dateDeSortie={elem.dateDeSortie}
+                                    description={elem.description}
+                                    link={elem.link}
+                                    autheur={elem.autheur}
+                                    saison={elem.saison}
+                                    type={elem.type}
+                                    creePar={elem.creePar}
+                                />
+                            )}
+                        </div>
+                        :
+                        <div className="parent-manga">
+                            {this.state.filtered.map(elem =>
+                                <CardManga
+                                    key={elem.id}
+                                    numberOfFolder={elem.id}
+                                    nameOfManga={elem.nameOfManga}
+                                    dateDeSortie={elem.dateDeSortie}
+                                    description={elem.description}
+                                    link={elem.link}
+                                    autheur={elem.autheur}
+                                    saison={elem.saison}
+                                    type={elem.type}
+                                    creePar={elem.creePar}
+                                />
+                            )}
+                        </div>
                 }
             </div>
         )
