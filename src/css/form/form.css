@@ -144,3 +144,19 @@ select {
     align-items: center;
     flex-direction: column;
 }
+
+.input-form-change {
+    background: #000;
+    color: #fff;
+    border: #fff 1px solid;
+    border-radius: 25px;
+    width: 350px;
+    padding: 10px;
+    margin: 10px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.input-form:focus {
+    width: 400px;
+}

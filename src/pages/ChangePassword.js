@@ -31,9 +31,9 @@ export default class ChangePassword extends React.Component {
                 .then(() => {
                     this.setState({ success: true })
                 })
-                .catch(error => { this.setState({ error: error }) })
+                .catch(() => { this.setState({ error: "Votre nouveau mot de passe est pas assez long" }) })
         })
-        .catch(() => { this.setState({ error: "Vous n'avez pas remplis les champs" }) })
+        .catch(() => { this.setState({ error: "Vous n'avez pas remplis les champs ou ancien mot de passe invalide" }) })
     }
 
     handleSubmit(event) {
@@ -57,23 +57,23 @@ export default class ChangePassword extends React.Component {
                         <Link to='/profil'>profil</Link>
                     </div>
                     :
-                    <div>
+                    <div style={{marginTop: 50}}>
                         <form onSubmit={this.handleSubmit} className="form">
                             <input
-                                className="input-form"
+                                className="input-form-change"
                                 type="password"
                                 name="currentPassword"
                                 value={this.state.currentPassword}
                                 onChange={e => this.setState({ currentPassword: e.target.value })}
                                 placeholder="Votre ancien mot de passe" />
                                 <input
-                                className="input-form"
+                                className="input-form-change"
                                 type="password"
                                 name="newPassword"
                                 value={this.state.newPassword}
                                 onChange={e => this.setState({ newPassword: e.target.value })}
                                 placeholder="Votre nouveau mot de passe" />
-                            <input className="button-form" type="submit" value="Envoyer" />
+                            <input className="button-edit-manga" type="submit" value="Envoyer" />
                         </form>
                         <p className={classNamError}>{this.state.error}</p>
                     </div>
