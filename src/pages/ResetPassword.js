@@ -1,7 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
 import { Link } from 'react-router-dom'
-import Image from '../assets/gokuKamehaUi.png'
+import Image from '../assets/gokuBlue.png'
 
 export default class ResetPassword extends React.Component {
     constructor(props) {
@@ -42,9 +42,9 @@ export default class ResetPassword extends React.Component {
                     <img src={Image} className="image-form" alt="goku de face" />
                 </div>
                 {this.state.success ?
-                    <div>
+                    <div className="congrats-reset">
                         <p>Nous vous avons envoye un lien par email</p>
-                        <Link to='/login'> se connecter </Link>
+                        <Link className="link-congrats" to='/login'> se connecter </Link>
                     </div>
                     :
                     <div style={{marginTop: 50}}>

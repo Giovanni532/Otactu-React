@@ -6,6 +6,14 @@
     align-items: center;
 }
 
+.congrats-reset {
+    margin-top: -60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .link-congrats {
     color: #fff;
 }

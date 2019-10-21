@@ -52,9 +52,9 @@ export default class ChangePassword extends React.Component {
                     <img src={Image} className="image-form" alt="goku de face" />
                 </div>
                 {this.state.success ?
-                    <div>
+                    <div className="congrats-reset">
                         <p>Votre mot de passe a bien ete modifier</p>
-                        <Link to='/profil'>profil</Link>
+                        <Link className="link-congrats" to='/profil'>profil</Link>
                     </div>
                     :
                     <div style={{marginTop: 50}}>
