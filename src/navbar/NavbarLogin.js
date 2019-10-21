@@ -29,10 +29,8 @@ export default class NavbarLogin extends React.Component {
                 </nav>
                 :
                 <nav className="navbar navbar-light bg-light">
-                    <Link className="navbar-brand" to="/">Home</Link>
                     <Link className="navbar-brand" to="/login">Login</Link>
                     <Link className="navbar-brand" to="/signup">Signup</Link>
-                    <Link className="navbar-brand" to="/contact">Contact</Link>
                 </nav>
         )
     }

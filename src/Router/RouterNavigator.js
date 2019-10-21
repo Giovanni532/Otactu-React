@@ -24,9 +24,9 @@ const RouterNavigator = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/congratsContact" component={CongratsScreen} />
-        <Route exact path="/resetPassword" component={ResetPassword} />
+        <PrivateRoute exact path="/contact" component={Contact} />
+        <PrivateRoute exact path="/congratsContact" component={CongratsScreen} />
+        <PrivateRoute exact path="/resetPassword" component={ResetPassword} />
         <PrivateRoute path="/home" component={HomeUser} />
         <PrivateRoute path="/users/*/mangas" component={UserMangas} />
         <PrivateRoute path="/mangas/*" component={Child} />
