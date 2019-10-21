@@ -1,7 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
 import { Link } from 'react-router-dom'
-import Image from '../assets/gokuKamehaUi.png'
+import Image from '../assets/vegetaBlue.png'
 
 export default class ChangePassword extends React.Component {
     constructor(props) {
