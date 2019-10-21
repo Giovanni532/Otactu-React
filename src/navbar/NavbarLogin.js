@@ -21,14 +21,22 @@ export default class NavbarLogin extends React.Component {
     render() {
         return (
             this.state.logged ?
-                <nav className="navbar navbar-light bg-light">
-                    <Link className="navbar-brand" to="/home">Home</Link>
-                    <Link className="navbar-brand" to="/manga">Manga</Link>
-                    <Link className="navbar-brand" to="/profil">Profil</Link>
-                    <Link className="navbar-brand" to="/contact">Contact</Link>
+                <nav className="navbar navbar-dark bg-dark">
+                    <div class="mx-auto" style={{ width: 200 }}>
+                        <Link className="navbar-brand" to="/home">Home</Link>
+                    </div>
+                    <div class="mx-auto" style={{ width: 200 }}>
+                        <Link className="navbar-brand" to="/manga">Manga</Link>
+                    </div>
+                    <div class="mx-auto" style={{ width: 200 }}>
+                        <Link className="navbar-brand" to="/profil">Profil</Link>
+                    </div>
+                    <div class="mx-auto" style={{ width: 200 }}>
+                        <Link className="navbar-brand" to="/contact">Contact</Link>
+                    </div>
                 </nav>
                 :
-                <nav className="navbar navbar-light bg-light">
+                <nav className="navbar navbar-dark bg-dark">
                     <Link className="navbar-brand" to="/login">Login</Link>
                     <Link className="navbar-brand" to="/signup">Signup</Link>
                 </nav>
