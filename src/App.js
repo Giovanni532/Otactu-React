@@ -22,7 +22,7 @@ firebase.initializeApp(configFirebase)
 function App() {
   const {width} = useWindowDimensions();
   return (
-    width <= 600 ?
+    width <= 700 ?
     <div>
       <p>Ce site web n'as pas été conçue pour une version mobile mais tu peux telecharger l'app</p>
     </div>
