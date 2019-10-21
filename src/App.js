@@ -3,6 +3,7 @@ import './css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from 'firebase/app'
 import RouterNavigator from './Router/RouterNavigator'
+import useWindowDimensions from './helpers/UseWindowDimensions';
 
 
 const configFirebase = {
@@ -19,7 +20,15 @@ const configFirebase = {
 firebase.initializeApp(configFirebase)
 
 function App() {
-  return <RouterNavigator />
+  const {width} = useWindowDimensions();
+  return (
+    width <= 600 ?
+    <div>
+      <p>Ce site web n'as pas été conçue pour une version mobile mais tu peux telecharger l'app</p>
+    </div>
+    :
+    <RouterNavigator/>
+  )
 }
 
 export default App;
