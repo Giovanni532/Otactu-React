@@ -11,7 +11,7 @@ const CongratsScreen = ({ location }) => {
             </div>
             <div className="congrats">
                 <p>Merci {location.state.email}, ton email a bien ete envoyer !</p>
-                <Link to='/home'>Retour</Link>
+                <Link className="link-congrats" to='/home'>Retour</Link>
             </div>
         </div>
     )

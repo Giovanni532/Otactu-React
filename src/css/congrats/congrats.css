@@ -1,0 +1,15 @@
+.congrats {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-congrats {
+    color: #fff;
+}
+
+.link-congrats:hover {
+    color: #fff;
+}
