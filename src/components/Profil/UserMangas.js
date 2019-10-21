@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from 'firebase/app'
 import LoaderCircle from '../../loaders/LoaderCircle'
 import CardManga from '../homeUser/CardManga'
+import Image from '../../assets/gokuUI.png'
 
 export default class UserMangas extends React.Component {
     _isMounted = true
@@ -54,7 +55,10 @@ export default class UserMangas extends React.Component {
     render() {
         return (
             <div>
-                <h2 style={{ backgroundColor: '#000', color: '#fff', textAlign: 'center', padding: 20, marginBottom: -20 }}>Vos mangas</h2>
+            <div style={{ backgroundColor: '#000', color: '#fff', textAlign: 'center', padding: 20, marginBottom: -20 }}>
+            <img style={{height: 300}} src={Image} alt="goku ui"/>
+            <h2>Mes mangas</h2>
+            </div>
                 {this.state.loader === true ?
                     <LoaderCircle />
                     :
